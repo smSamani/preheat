@@ -1,0 +1,2134 @@
+{
+  "bands": [
+    {
+      "avoided_pct_max": 56.086908,
+      "avoided_pct_min": 26.697341,
+      "ceiling_c": 21.5,
+      "envelope": "current",
+      "n_cases_ok": 7,
+      "saving_eur_max": 0.696847,
+      "saving_eur_min": 0.244692
+    },
+    {
+      "avoided_pct_max": 75.058068,
+      "avoided_pct_min": 40.712095,
+      "ceiling_c": 21.5,
+      "envelope": "insulated",
+      "n_cases_ok": 7,
+      "saving_eur_max": 0.708323,
+      "saving_eur_min": 0.25542
+    },
+    {
+      "avoided_pct_max": 74.206808,
+      "avoided_pct_min": 35.596454,
+      "ceiling_c": 22.0,
+      "envelope": "current",
+      "n_cases_ok": 7,
+      "saving_eur_max": 0.907088,
+      "saving_eur_min": 0.326256
+    },
+    {
+      "avoided_pct_max": 99.153331,
+      "avoided_pct_min": 53.904229,
+      "ceiling_c": 22.0,
+      "envelope": "insulated",
+      "n_cases_ok": 7,
+      "saving_eur_max": 0.920777,
+      "saving_eur_min": 0.335101
+    },
+    {
+      "avoided_pct_max": 91.825786,
+      "avoided_pct_min": 44.079463,
+      "ceiling_c": 22.5,
+      "envelope": "current",
+      "n_cases_ok": 7,
+      "saving_eur_max": 1.100825,
+      "saving_eur_min": 0.398777
+    },
+    {
+      "avoided_pct_max": 100.0,
+      "avoided_pct_min": 66.758258,
+      "ceiling_c": 22.5,
+      "envelope": "insulated",
+      "n_cases_ok": 7,
+      "saving_eur_max": 0.928154,
+      "saving_eur_min": 0.409906
+    },
+    {
+      "avoided_pct_max": 100.0,
+      "avoided_pct_min": 52.404646,
+      "ceiling_c": 23.0,
+      "envelope": "current",
+      "n_cases_ok": 7,
+      "saving_eur_max": 1.186252,
+      "saving_eur_min": 0.467868
+    },
+    {
+      "avoided_pct_max": 100.0,
+      "avoided_pct_min": 79.202354,
+      "ceiling_c": 23.0,
+      "envelope": "insulated",
+      "n_cases_ok": 7,
+      "saving_eur_max": 0.928154,
+      "saving_eur_min": 0.4788
+    },
+    {
+      "avoided_pct_max": 100.0,
+      "avoided_pct_min": 60.572414,
+      "ceiling_c": 23.5,
+      "envelope": "current",
+      "n_cases_ok": 7,
+      "saving_eur_max": 1.186252,
+      "saving_eur_min": 0.527302
+    },
+    {
+      "avoided_pct_max": 100.0,
+      "avoided_pct_min": 91.228261,
+      "ceiling_c": 23.5,
+      "envelope": "insulated",
+      "n_cases_ok": 7,
+      "saving_eur_max": 0.928154,
+      "saving_eur_min": 0.541187
+    },
+    {
+      "avoided_pct_max": 100.0,
+      "avoided_pct_min": 68.360681,
+      "ceiling_c": 24.0,
+      "envelope": "current",
+      "n_cases_ok": 7,
+      "saving_eur_max": 1.186252,
+      "saving_eur_min": 0.577013
+    },
+    {
+      "avoided_pct_max": 100.0,
+      "avoided_pct_min": 100.0,
+      "ceiling_c": 24.0,
+      "envelope": "insulated",
+      "n_cases_ok": 7,
+      "saving_eur_max": 0.928154,
+      "saving_eur_min": 0.54793
+    }
+  ],
+  "example_day": {
+    "T_baseline_c": [
+      20.0,
+      20.0,
+      20.0,
+      20.0,
+      20.0,
+      20.0,
+      20.0,
+      20.0,
+      20.0,
+      20.0,
+      20.0,
+      20.0,
+      20.0,
+      20.0,
+      20.0,
+      20.0,
+      20.0,
+      20.0,
+      21.0,
+      21.0,
+      21.0,
+      21.0,
+      20.195286,
+      20.0,
+      20.0
+    ],
+    "T_optimised_c": [
+      20.0,
+      20.0,
+      20.0,
+      20.0,
+      20.0,
+      20.0,
+      20.0,
+      20.0,
+      20.0,
+      20.0,
+      20.0,
+      20.0,
+      20.0,
+      20.0,
+      20.0,
+      20.0,
+      20.167165,
+      22.5,
+      21.62213,
+      21.0,
+      21.0,
+      21.0,
+      20.195286,
+      20.0,
+      20.0
+    ],
+    "case": "nominal",
+    "ceiling_c": 22.5,
+    "envelope": "current",
+    "floor_c": [
+      20.0,
+      20.0,
+      20.0,
+      20.0,
+      20.0,
+      20.0,
+      20.0,
+      20.0,
+      20.0,
+      20.0,
+      20.0,
+      20.0,
+      20.0,
+      20.0,
+      20.0,
+      20.0,
+      20.0,
+      20.0,
+      21.0,
+      21.0,
+      21.0,
+      21.0,
+      20.0,
+      20.0,
+      20.0
+    ],
+    "hours": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23
+    ],
+    "p_baseline_kw": [
+      1.192982,
+      1.192982,
+      1.192982,
+      1.192982,
+      1.192982,
+      1.192982,
+      1.192982,
+      1.192982,
+      1.192982,
+      0.852459,
+      0.852459,
+      0.852459,
+      0.852459,
+      0.852459,
+      0.852459,
+      0.852459,
+      0.852459,
+      2.526608,
+      1.157895,
+      1.157895,
+      1.157895,
+      0.0,
+      0.925693,
+      1.192982
+    ],
+    "p_optimised_kw": [
+      1.192982,
+      1.192982,
+      1.192982,
+      1.192982,
+      1.192982,
+      1.192982,
+      1.192982,
+      1.192982,
+      1.192982,
+      0.852459,
+      0.852459,
+      0.852459,
+      0.852459,
+      0.852459,
+      0.852459,
+      1.077218,
+      4.0,
+      0.0,
+      0.306378,
+      1.157895,
+      1.157895,
+      0.0,
+      0.925693,
+      1.192982
+    ],
+    "price_eur_per_kwh": [
+      0.22,
+      0.22,
+      0.22,
+      0.22,
+      0.22,
+      0.22,
+      0.22,
+      0.22,
+      0.22,
+      0.22,
+      0.22,
+      0.22,
+      0.22,
+      0.22,
+      0.22,
+      0.22,
+      0.22,
+      0.38,
+      0.38,
+      0.38,
+      0.38,
+      0.38,
+      0.22,
+      0.22
+    ]
+  },
+  "fixture": {
+    "C_kwh_per_k": 4.0,
+    "T0_c": 20.0,
+    "UA_kw_per_k": {
+      "current": 0.2,
+      "insulated": 0.13
+    },
+    "cases": [
+      "nominal",
+      "outdoor_minus3",
+      "outdoor_plus3",
+      "capacity_3",
+      "capacity_8",
+      "gains_x0.5",
+      "gains_x1.5"
+    ],
+    "ceilings_c": [
+      21.5,
+      22.0,
+      22.5,
+      23.0,
+      23.5,
+      24.0
+    ],
+    "cop": "clip(3 + 0.05*(Tout - 5), 2, 4)",
+    "evening_check_states": [
+      18,
+      19,
+      20,
+      21
+    ],
+    "evening_floor_c": 21.0,
+    "evening_hours": [
+      17,
+      18,
+      19,
+      20,
+      21
+    ],
+    "floor_c": 20.0,
+    "gains_kw": {
+      "evening": 0.5,
+      "normal": 0.2
+    },
+    "outdoor_c": {
+      "day_09_17": 6.0,
+      "night": 2.0
+    },
+    "p_max_kw": 4.0,
+    "price_eur_per_kwh": {
+      "evening": 0.38,
+      "normal": 0.22
+    }
+  },
+  "format": "preheat-results/1",
+  "infeasible_check": {
+    "current": "infeasible",
+    "insulated": "infeasible",
+    "p_max_kw": 0.2
+  },
+  "records": [
+    {
+      "avoided_kwh": 2.05307,
+      "avoided_pct": 34.216169,
+      "baseline": {
+        "T_end_c": 20.0,
+        "cost_eur": 6.608653,
+        "elec_kwh": 25.675482,
+        "evening_kwh": 6.000292
+      },
+      "case": "nominal",
+      "ceiling_c": 21.5,
+      "envelope": "current",
+      "optimised": {
+        "T_end_c": 20.0,
+        "cost_eur": 6.272183,
+        "elec_kwh": 25.639215,
+        "evening_kwh": 3.947222
+      },
+      "saving_eur": 0.33647,
+      "status": "ok"
+    },
+    {
+      "avoided_kwh": 2.16713,
+      "avoided_pct": 30.005128,
+      "baseline": {
+        "T_end_c": 20.0,
+        "cost_eur": 8.25625,
+        "elec_kwh": 32.275658,
+        "evening_kwh": 7.222531
+      },
+      "case": "outdoor_minus3",
+      "ceiling_c": 21.5,
+      "envelope": "current",
+      "optimised": {
+        "T_end_c": 20.0,
+        "cost_eur": 7.899387,
+        "elec_kwh": 32.229649,
+        "evening_kwh": 5.055401
+      },
+      "saving_eur": 0.356863,
+      "status": "ok"
+    },
+    {
+      "avoided_kwh": 1.950417,
+      "avoided_pct": 39.802165,
+      "baseline": {
+        "T_end_c": 20.0,
+        "cost_eur": 5.123055,
+        "elec_kwh": 19.722773,
+        "evening_kwh": 4.900278
+      },
+      "case": "outdoor_plus3",
+      "ceiling_c": 21.5,
+      "envelope": "current",
+      "optimised": {
+        "T_end_c": 20.0,
+        "cost_eur": 4.804795,
+        "elec_kwh": 19.694622,
+        "evening_kwh": 2.949861
+      },
+      "saving_eur": 0.31826,
+      "status": "ok"
+    },
+    {
+      "avoided_kwh": 1.526901,
+      "avoided_pct": 26.697341,
+      "baseline": {
+        "T_end_c": 20.0,
+        "cost_eur": 6.560679,
+        "elec_kwh": 25.661777,
+        "evening_kwh": 5.719298
+      },
+      "case": "capacity_3",
+      "ceiling_c": 21.5,
+      "envelope": "current",
+      "optimised": {
+        "T_end_c": 20.0,
+        "cost_eur": 6.315987,
+        "elec_kwh": 25.660013,
+        "evening_kwh": 4.192398
+      },
+      "saving_eur": 0.244692,
+      "status": "ok"
+    },
+    {
+      "avoided_kwh": 4.152481,
+      "avoided_pct": 56.086908,
+      "baseline": {
+        "T_end_c": 20.0,
+        "cost_eur": 6.841768,
+        "elec_kwh": 25.71447,
+        "evening_kwh": 7.403655
+      },
+      "case": "capacity_8",
+      "ceiling_c": 21.5,
+      "envelope": "current",
+      "optimised": {
+        "T_end_c": 20.0,
+        "cost_eur": 6.144921,
+        "elec_kwh": 25.56697,
+        "evening_kwh": 3.251174
+      },
+      "saving_eur": 0.696847,
+      "status": "ok"
+    },
+    {
+      "avoided_kwh": 2.05307,
+      "avoided_pct": 32.32586,
+      "baseline": {
+        "T_end_c": 20.0,
+        "cost_eur": 6.90296,
+        "elec_kwh": 26.75806,
+        "evening_kwh": 6.35117
+      },
+      "case": "gains_x0.5",
+      "ceiling_c": 21.5,
+      "envelope": "current",
+      "optimised": {
+        "T_end_c": 20.0,
+        "cost_eur": 6.56649,
+        "elec_kwh": 26.721793,
+        "evening_kwh": 4.298099
+      },
+      "saving_eur": 0.33647,
+      "status": "ok"
+    },
+    {
+      "avoided_kwh": 2.05307,
+      "avoided_pct": 36.341286,
+      "baseline": {
+        "T_end_c": 20.0,
+        "cost_eur": 6.314345,
+        "elec_kwh": 24.592903,
+        "evening_kwh": 5.649415
+      },
+      "case": "gains_x1.5",
+      "ceiling_c": 21.5,
+      "envelope": "current",
+      "optimised": {
+        "T_end_c": 20.0,
+        "cost_eur": 5.977875,
+        "elec_kwh": 24.556636,
+        "evening_kwh": 3.596345
+      },
+      "saving_eur": 0.33647,
+      "status": "ok"
+    },
+    {
+      "avoided_kwh": 2.071238,
+      "avoided_pct": 49.960662,
+      "baseline": {
+        "T_end_c": 20.0,
+        "cost_eur": 4.170749,
+        "elec_kwh": 15.942866,
+        "evening_kwh": 4.145738
+      },
+      "case": "nominal",
+      "ceiling_c": 21.5,
+      "envelope": "insulated",
+      "optimised": {
+        "T_end_c": 20.0,
+        "cost_eur": 3.823536,
+        "elec_kwh": 15.870982,
+        "evening_kwh": 2.0745
+      },
+      "saving_eur": 0.347213,
+      "status": "ok"
+    },
+    {
+      "avoided_kwh": 2.186307,
+      "avoided_pct": 44.133628,
+      "baseline": {
+        "T_end_c": 20.0,
+        "cost_eur": 5.235437,
+        "elec_kwh": 20.194655,
+        "evening_kwh": 4.953834
+      },
+      "case": "outdoor_minus3",
+      "ceiling_c": 21.5,
+      "envelope": "insulated",
+      "optimised": {
+        "T_end_c": 20.0,
+        "cost_eur": 4.86725,
+        "elec_kwh": 20.111116,
+        "evening_kwh": 2.767527
+      },
+      "saving_eur": 0.368188,
+      "status": "ok"
+    },
+    {
+      "avoided_kwh": 1.963544,
+      "avoided_pct": 57.43958,
+      "baseline": {
+        "T_end_c": 20.0,
+        "cost_eur": 3.212285,
+        "elec_kwh": 12.11515,
+        "evening_kwh": 3.418451
+      },
+      "case": "outdoor_plus3",
+      "ceiling_c": 21.5,
+      "envelope": "insulated",
+      "optimised": {
+        "T_end_c": 20.0,
+        "cost_eur": 2.885378,
+        "elec_kwh": 12.05724,
+        "evening_kwh": 1.454907
+      },
+      "saving_eur": 0.326907,
+      "status": "ok"
+    },
+    {
+      "avoided_kwh": 1.544984,
+      "avoided_pct": 40.712095,
+      "baseline": {
+        "T_end_c": 20.0,
+        "cost_eur": 4.113029,
+        "elec_kwh": 15.935656,
+        "evening_kwh": 3.794902
+      },
+      "case": "capacity_3",
+      "ceiling_c": 21.5,
+      "envelope": "insulated",
+      "optimised": {
+        "T_end_c": 20.0,
+        "cost_eur": 3.857608,
+        "elec_kwh": 15.89828,
+        "evening_kwh": 2.249918
+      },
+      "saving_eur": 0.25542,
+      "status": "ok"
+    },
+    {
+      "avoided_kwh": 4.165111,
+      "avoided_pct": 75.058068,
+      "baseline": {
+        "T_end_c": 20.205174,
+        "cost_eur": 4.530247,
+        "elec_kwh": 16.55626,
+        "evening_kwh": 5.549185
+      },
+      "case": "capacity_8",
+      "ceiling_c": 21.5,
+      "envelope": "insulated",
+      "optimised": {
+        "T_end_c": 20.205174,
+        "cost_eur": 3.821924,
+        "elec_kwh": 16.365781,
+        "evening_kwh": 1.384074
+      },
+      "saving_eur": 0.708323,
+      "status": "ok"
+    },
+    {
+      "avoided_kwh": 2.071238,
+      "avoided_pct": 46.062161,
+      "baseline": {
+        "T_end_c": 20.0,
+        "cost_eur": 4.46538,
+        "elec_kwh": 17.026917,
+        "evening_kwh": 4.496615
+      },
+      "case": "gains_x0.5",
+      "ceiling_c": 21.5,
+      "envelope": "insulated",
+      "optimised": {
+        "T_end_c": 20.0,
+        "cost_eur": 4.118168,
+        "elec_kwh": 16.955033,
+        "evening_kwh": 2.425377
+      },
+      "saving_eur": 0.347213,
+      "status": "ok"
+    },
+    {
+      "avoided_kwh": 2.068459,
+      "avoided_pct": 54.506853,
+      "baseline": {
+        "T_end_c": 20.0,
+        "cost_eur": 3.876685,
+        "elec_kwh": 14.861399,
+        "evening_kwh": 3.79486
+      },
+      "case": "gains_x1.5",
+      "ceiling_c": 21.5,
+      "envelope": "insulated",
+      "optimised": {
+        "T_end_c": 20.0,
+        "cost_eur": 3.530529,
+        "elec_kwh": 14.792294,
+        "evening_kwh": 1.726401
+      },
+      "saving_eur": 0.346157,
+      "status": "ok"
+    },
+    {
+      "avoided_kwh": 2.727145,
+      "avoided_pct": 45.450204,
+      "baseline": {
+        "T_end_c": 20.0,
+        "cost_eur": 6.608653,
+        "elec_kwh": 25.675482,
+        "evening_kwh": 6.000292
+      },
+      "case": "nominal",
+      "ceiling_c": 22.0,
+      "envelope": "current",
+      "optimised": {
+        "T_end_c": 20.0,
+        "cost_eur": 6.163933,
+        "elec_kwh": 25.637408,
+        "evening_kwh": 3.273147
+      },
+      "saving_eur": 0.44472,
+      "status": "ok"
+    },
+    {
+      "avoided_kwh": 2.889491,
+      "avoided_pct": 40.006629,
+      "baseline": {
+        "T_end_c": 20.0,
+        "cost_eur": 8.25625,
+        "elec_kwh": 32.275658,
+        "evening_kwh": 7.222531
+      },
+      "case": "outdoor_minus3",
+      "ceiling_c": 22.0,
+      "envelope": "current",
+      "optimised": {
+        "T_end_c": 20.0,
+        "cost_eur": 7.780439,
+        "elec_kwh": 32.214328,
+        "evening_kwh": 4.33304
+      },
+      "saving_eur": 0.475811,
+      "status": "ok"
+    },
+    {
+      "avoided_kwh": 2.581034,
+      "avoided_pct": 52.671173,
+      "baseline": {
+        "T_end_c": 20.0,
+        "cost_eur": 5.123055,
+        "elec_kwh": 19.722773,
+        "evening_kwh": 4.900278
+      },
+      "case": "outdoor_plus3",
+      "ceiling_c": 22.0,
+      "envelope": "current",
+      "optimised": {
+        "T_end_c": 20.0,
+        "cost_eur": 4.706126,
+        "elec_kwh": 19.70476,
+        "evening_kwh": 2.319244
+      },
+      "saving_eur": 0.416928,
+      "status": "ok"
+    },
+    {
+      "avoided_kwh": 2.035867,
+      "avoided_pct": 35.596454,
+      "baseline": {
+        "T_end_c": 20.0,
+        "cost_eur": 6.560679,
+        "elec_kwh": 25.661777,
+        "evening_kwh": 5.719298
+      },
+      "case": "capacity_3",
+      "ceiling_c": 22.0,
+      "envelope": "current",
+      "optimised": {
+        "T_end_c": 20.0,
+        "cost_eur": 6.234423,
+        "elec_kwh": 25.659425,
+        "evening_kwh": 3.683431
+      },
+      "saving_eur": 0.326256,
+      "status": "ok"
+    },
+    {
+      "avoided_kwh": 5.494016,
+      "avoided_pct": 74.206808,
+      "baseline": {
+        "T_end_c": 20.0,
+        "cost_eur": 6.841768,
+        "elec_kwh": 25.71447,
+        "evening_kwh": 7.403655
+      },
+      "case": "capacity_8",
+      "ceiling_c": 22.0,
+      "envelope": "current",
+      "optimised": {
+        "T_end_c": 20.0,
+        "cost_eur": 5.93468,
+        "elec_kwh": 25.586989,
+        "evening_kwh": 1.909639
+      },
+      "saving_eur": 0.907088,
+      "status": "ok"
+    },
+    {
+      "avoided_kwh": 2.731423,
+      "avoided_pct": 43.006618,
+      "baseline": {
+        "T_end_c": 20.0,
+        "cost_eur": 6.90296,
+        "elec_kwh": 26.75806,
+        "evening_kwh": 6.35117
+      },
+      "case": "gains_x0.5",
+      "ceiling_c": 22.0,
+      "envelope": "current",
+      "optimised": {
+        "T_end_c": 20.0,
+        "cost_eur": 6.456615,
+        "elec_kwh": 26.715708,
+        "evening_kwh": 3.619746
+      },
+      "saving_eur": 0.446345,
+      "status": "ok"
+    },
+    {
+      "avoided_kwh": 2.722867,
+      "avoided_pct": 48.197325,
+      "baseline": {
+        "T_end_c": 20.0,
+        "cost_eur": 6.314345,
+        "elec_kwh": 24.592903,
+        "evening_kwh": 5.649415
+      },
+      "case": "gains_x1.5",
+      "ceiling_c": 22.0,
+      "envelope": "current",
+      "optimised": {
+        "T_end_c": 20.0,
+        "cost_eur": 5.871251,
+        "elec_kwh": 24.559107,
+        "evening_kwh": 2.926548
+      },
+      "saving_eur": 0.443094,
+      "status": "ok"
+    },
+    {
+      "avoided_kwh": 2.739599,
+      "avoided_pct": 66.082305,
+      "baseline": {
+        "T_end_c": 20.0,
+        "cost_eur": 4.170749,
+        "elec_kwh": 15.942866,
+        "evening_kwh": 4.145738
+      },
+      "case": "nominal",
+      "ceiling_c": 22.0,
+      "envelope": "insulated",
+      "optimised": {
+        "T_end_c": 20.0,
+        "cost_eur": 3.716178,
+        "elec_kwh": 15.869072,
+        "evening_kwh": 1.406139
+      },
+      "saving_eur": 0.454571,
+      "status": "ok"
+    },
+    {
+      "avoided_kwh": 2.896418,
+      "avoided_pct": 58.468205,
+      "baseline": {
+        "T_end_c": 20.0,
+        "cost_eur": 5.235437,
+        "elec_kwh": 20.194655,
+        "evening_kwh": 4.953834
+      },
+      "case": "outdoor_minus3",
+      "ceiling_c": 22.0,
+      "envelope": "insulated",
+      "optimised": {
+        "T_end_c": 20.0,
+        "cost_eur": 4.751611,
+        "elec_kwh": 20.101928,
+        "evening_kwh": 2.057416
+      },
+      "saving_eur": 0.483827,
+      "status": "ok"
+    },
+    {
+      "avoided_kwh": 2.591,
+      "avoided_pct": 75.794574,
+      "baseline": {
+        "T_end_c": 20.0,
+        "cost_eur": 3.212285,
+        "elec_kwh": 12.11515,
+        "evening_kwh": 3.418451
+      },
+      "case": "outdoor_plus3",
+      "ceiling_c": 22.0,
+      "envelope": "insulated",
+      "optimised": {
+        "T_end_c": 20.0,
+        "cost_eur": 2.786691,
+        "elec_kwh": 12.064995,
+        "evening_kwh": 0.827451
+      },
+      "saving_eur": 0.425594,
+      "status": "ok"
+    },
+    {
+      "avoided_kwh": 2.045612,
+      "avoided_pct": 53.904229,
+      "baseline": {
+        "T_end_c": 20.0,
+        "cost_eur": 4.113029,
+        "elec_kwh": 15.935656,
+        "evening_kwh": 3.794902
+      },
+      "case": "capacity_3",
+      "ceiling_c": 22.0,
+      "envelope": "insulated",
+      "optimised": {
+        "T_end_c": 20.0,
+        "cost_eur": 3.777928,
+        "elec_kwh": 15.900188,
+        "evening_kwh": 1.749289
+      },
+      "saving_eur": 0.335101,
+      "status": "ok"
+    },
+    {
+      "avoided_kwh": 5.502201,
+      "avoided_pct": 99.153331,
+      "baseline": {
+        "T_end_c": 20.205174,
+        "cost_eur": 4.530247,
+        "elec_kwh": 16.55626,
+        "evening_kwh": 5.549185
+      },
+      "case": "capacity_8",
+      "ceiling_c": 22.0,
+      "envelope": "insulated",
+      "optimised": {
+        "T_end_c": 20.205174,
+        "cost_eur": 3.60947,
+        "elec_kwh": 16.372511,
+        "evening_kwh": 0.046983
+      },
+      "saving_eur": 0.920777,
+      "status": "ok"
+    },
+    {
+      "avoided_kwh": 2.742404,
+      "avoided_pct": 60.988191,
+      "baseline": {
+        "T_end_c": 20.0,
+        "cost_eur": 4.46538,
+        "elec_kwh": 17.026917,
+        "evening_kwh": 4.496615
+      },
+      "case": "gains_x0.5",
+      "ceiling_c": 22.0,
+      "envelope": "insulated",
+      "optimised": {
+        "T_end_c": 20.0,
+        "cost_eur": 4.009744,
+        "elec_kwh": 16.950318,
+        "evening_kwh": 1.754211
+      },
+      "saving_eur": 0.455636,
+      "status": "ok"
+    },
+    {
+      "avoided_kwh": 2.732031,
+      "avoided_pct": 71.99292,
+      "baseline": {
+        "T_end_c": 20.0,
+        "cost_eur": 3.876685,
+        "elec_kwh": 14.861399,
+        "evening_kwh": 3.79486
+      },
+      "case": "gains_x1.5",
+      "ceiling_c": 22.0,
+      "envelope": "insulated",
+      "optimised": {
+        "T_end_c": 20.0,
+        "cost_eur": 3.424991,
+        "elec_kwh": 14.795173,
+        "evening_kwh": 1.06283
+      },
+      "saving_eur": 0.451695,
+      "status": "ok"
+    },
+    {
+      "avoided_kwh": 3.378125,
+      "avoided_pct": 56.299346,
+      "baseline": {
+        "T_end_c": 20.0,
+        "cost_eur": 6.608653,
+        "elec_kwh": 25.675482,
+        "evening_kwh": 6.000292
+      },
+      "case": "nominal",
+      "ceiling_c": 22.5,
+      "envelope": "current",
+      "optimised": {
+        "T_end_c": 20.0,
+        "cost_eur": 6.066871,
+        "elec_kwh": 25.669657,
+        "evening_kwh": 2.622167
+      },
+      "saving_eur": 0.541782,
+      "status": "ok"
+    },
+    {
+      "avoided_kwh": 3.576637,
+      "avoided_pct": 49.520549,
+      "baseline": {
+        "T_end_c": 20.0,
+        "cost_eur": 8.25625,
+        "elec_kwh": 32.275658,
+        "evening_kwh": 7.222531
+      },
+      "case": "outdoor_minus3",
+      "ceiling_c": 22.5,
+      "envelope": "current",
+      "optimised": {
+        "T_end_c": 20.0,
+        "cost_eur": 7.682076,
+        "elec_kwh": 32.266967,
+        "evening_kwh": 3.645894
+      },
+      "saving_eur": 0.574174,
+      "status": "ok"
+    },
+    {
+      "avoided_kwh": 3.194628,
+      "avoided_pct": 65.192785,
+      "baseline": {
+        "T_end_c": 20.0,
+        "cost_eur": 5.123055,
+        "elec_kwh": 19.722773,
+        "evening_kwh": 4.900278
+      },
+      "case": "outdoor_plus3",
+      "ceiling_c": 22.5,
+      "envelope": "current",
+      "optimised": {
+        "T_end_c": 20.0,
+        "cost_eur": 4.613927,
+        "elec_kwh": 19.731922,
+        "evening_kwh": 1.70565
+      },
+      "saving_eur": 0.509128,
+      "status": "ok"
+    },
+    {
+      "avoided_kwh": 2.521036,
+      "avoided_pct": 44.079463,
+      "baseline": {
+        "T_end_c": 20.0,
+        "cost_eur": 6.560679,
+        "elec_kwh": 25.661777,
+        "evening_kwh": 5.719298
+      },
+      "case": "capacity_3",
+      "ceiling_c": 22.5,
+      "envelope": "current",
+      "optimised": {
+        "T_end_c": 20.0,
+        "cost_eur": 6.161902,
+        "elec_kwh": 25.682636,
+        "evening_kwh": 3.198262
+      },
+      "saving_eur": 0.398777,
+      "status": "ok"
+    },
+    {
+      "avoided_kwh": 6.798464,
+      "avoided_pct": 91.825786,
+      "baseline": {
+        "T_end_c": 20.0,
+        "cost_eur": 6.841768,
+        "elec_kwh": 25.71447,
+        "evening_kwh": 7.403655
+      },
+      "case": "capacity_8",
+      "ceiling_c": 22.5,
+      "envelope": "current",
+      "optimised": {
+        "T_end_c": 20.0,
+        "cost_eur": 5.740943,
+        "elec_kwh": 25.655057,
+        "evening_kwh": 0.605191
+      },
+      "saving_eur": 1.100825,
+      "status": "ok"
+    },
+    {
+      "avoided_kwh": 3.382403,
+      "avoided_pct": 53.256388,
+      "baseline": {
+        "T_end_c": 20.0,
+        "cost_eur": 6.90296,
+        "elec_kwh": 26.75806,
+        "evening_kwh": 6.35117
+      },
+      "case": "gains_x0.5",
+      "ceiling_c": 22.5,
+      "envelope": "current",
+      "optimised": {
+        "T_end_c": 20.0,
+        "cost_eur": 6.359923,
+        "elec_kwh": 26.749638,
+        "evening_kwh": 2.968766
+      },
+      "saving_eur": 0.543037,
+      "status": "ok"
+    },
+    {
+      "avoided_kwh": 3.373847,
+      "avoided_pct": 59.720292,
+      "baseline": {
+        "T_end_c": 20.0,
+        "cost_eur": 6.314345,
+        "elec_kwh": 24.592903,
+        "evening_kwh": 5.649415
+      },
+      "case": "gains_x1.5",
+      "ceiling_c": 22.5,
+      "envelope": "current",
+      "optimised": {
+        "T_end_c": 20.0,
+        "cost_eur": 5.773819,
+        "elec_kwh": 24.589675,
+        "evening_kwh": 2.275568
+      },
+      "saving_eur": 0.540526,
+      "status": "ok"
+    },
+    {
+      "avoided_kwh": 3.387319,
+      "avoided_pct": 81.706076,
+      "baseline": {
+        "T_end_c": 20.0,
+        "cost_eur": 4.170749,
+        "elec_kwh": 15.942866,
+        "evening_kwh": 4.145738
+      },
+      "case": "nominal",
+      "ceiling_c": 22.5,
+      "envelope": "insulated",
+      "optimised": {
+        "T_end_c": 20.0,
+        "cost_eur": 3.616663,
+        "elec_kwh": 15.887802,
+        "evening_kwh": 0.758418
+      },
+      "saving_eur": 0.554085,
+      "status": "ok"
+    },
+    {
+      "avoided_kwh": 3.589213,
+      "avoided_pct": 72.453236,
+      "baseline": {
+        "T_end_c": 20.0,
+        "cost_eur": 5.235437,
+        "elec_kwh": 20.194655,
+        "evening_kwh": 4.953834
+      },
+      "case": "outdoor_minus3",
+      "ceiling_c": 22.5,
+      "envelope": "insulated",
+      "optimised": {
+        "T_end_c": 20.0,
+        "cost_eur": 4.643988,
+        "elec_kwh": 20.116587,
+        "evening_kwh": 1.364621
+      },
+      "saving_eur": 0.591449,
+      "status": "ok"
+    },
+    {
+      "avoided_kwh": 3.19558,
+      "avoided_pct": 93.480349,
+      "baseline": {
+        "T_end_c": 20.0,
+        "cost_eur": 3.212285,
+        "elec_kwh": 12.11515,
+        "evening_kwh": 3.418451
+      },
+      "case": "outdoor_plus3",
+      "ceiling_c": 22.5,
+      "envelope": "insulated",
+      "optimised": {
+        "T_end_c": 20.0,
+        "cost_eur": 2.696697,
+        "elec_kwh": 12.095626,
+        "evening_kwh": 0.222871
+      },
+      "saving_eur": 0.515588,
+      "status": "ok"
+    },
+    {
+      "avoided_kwh": 2.53341,
+      "avoided_pct": 66.758258,
+      "baseline": {
+        "T_end_c": 20.0,
+        "cost_eur": 4.113029,
+        "elec_kwh": 15.935656,
+        "evening_kwh": 3.794902
+      },
+      "case": "capacity_3",
+      "ceiling_c": 22.5,
+      "envelope": "insulated",
+      "optimised": {
+        "T_end_c": 20.0,
+        "cost_eur": 3.703122,
+        "elec_kwh": 15.914926,
+        "evening_kwh": 1.261491
+      },
+      "saving_eur": 0.409906,
+      "status": "ok"
+    },
+    {
+      "avoided_kwh": 5.549185,
+      "avoided_pct": 100.0,
+      "baseline": {
+        "T_end_c": 20.205174,
+        "cost_eur": 4.530247,
+        "elec_kwh": 16.55626,
+        "evening_kwh": 5.549185
+      },
+      "case": "capacity_8",
+      "ceiling_c": 22.5,
+      "envelope": "insulated",
+      "optimised": {
+        "T_end_c": 20.205174,
+        "cost_eur": 3.602092,
+        "elec_kwh": 16.373147,
+        "evening_kwh": 0.0
+      },
+      "saving_eur": 0.928154,
+      "status": "ok"
+    },
+    {
+      "avoided_kwh": 3.395645,
+      "avoided_pct": 75.515585,
+      "baseline": {
+        "T_end_c": 20.0,
+        "cost_eur": 4.46538,
+        "elec_kwh": 17.026917,
+        "evening_kwh": 4.496615
+      },
+      "case": "gains_x0.5",
+      "ceiling_c": 22.5,
+      "envelope": "insulated",
+      "optimised": {
+        "T_end_c": 20.0,
+        "cost_eur": 3.908131,
+        "elec_kwh": 16.963528,
+        "evening_kwh": 1.10097
+      },
+      "saving_eur": 0.557249,
+      "status": "ok"
+    },
+    {
+      "avoided_kwh": 3.372994,
+      "avoided_pct": 88.883209,
+      "baseline": {
+        "T_end_c": 20.0,
+        "cost_eur": 3.876685,
+        "elec_kwh": 14.861399,
+        "evening_kwh": 3.79486
+      },
+      "case": "gains_x1.5",
+      "ceiling_c": 22.5,
+      "envelope": "insulated",
+      "optimised": {
+        "T_end_c": 20.0,
+        "cost_eur": 3.328044,
+        "elec_kwh": 14.820661,
+        "evening_kwh": 0.421867
+      },
+      "saving_eur": 0.548641,
+      "status": "ok"
+    },
+    {
+      "avoided_kwh": 4.012299,
+      "avoided_pct": 66.868394,
+      "baseline": {
+        "T_end_c": 20.0,
+        "cost_eur": 6.608653,
+        "elec_kwh": 25.675482,
+        "evening_kwh": 6.000292
+      },
+      "case": "nominal",
+      "ceiling_c": 23.0,
+      "envelope": "current",
+      "optimised": {
+        "T_end_c": 20.0,
+        "cost_eur": 5.981367,
+        "elec_kwh": 25.742219,
+        "evening_kwh": 1.987993
+      },
+      "saving_eur": 0.627286,
+      "status": "ok"
+    },
+    {
+      "avoided_kwh": 4.263783,
+      "avoided_pct": 59.034469,
+      "baseline": {
+        "T_end_c": 20.0,
+        "cost_eur": 8.25625,
+        "elec_kwh": 32.275658,
+        "evening_kwh": 7.222531
+      },
+      "case": "outdoor_minus3",
+      "ceiling_c": 23.0,
+      "envelope": "current",
+      "optimised": {
+        "T_end_c": 20.0,
+        "cost_eur": 7.584484,
+        "elec_kwh": 32.323112,
+        "evening_kwh": 2.958748
+      },
+      "saving_eur": 0.671765,
+      "status": "ok"
+    },
+    {
+      "avoided_kwh": 3.782898,
+      "avoided_pct": 77.197615,
+      "baseline": {
+        "T_end_c": 20.0,
+        "cost_eur": 5.123055,
+        "elec_kwh": 19.722773,
+        "evening_kwh": 4.900278
+      },
+      "case": "outdoor_plus3",
+      "ceiling_c": 23.0,
+      "envelope": "current",
+      "optimised": {
+        "T_end_c": 20.0,
+        "cost_eur": 4.536646,
+        "elec_kwh": 19.80848,
+        "evening_kwh": 1.11738
+      },
+      "saving_eur": 0.586408,
+      "status": "ok"
+    },
+    {
+      "avoided_kwh": 2.997178,
+      "avoided_pct": 52.404646,
+      "baseline": {
+        "T_end_c": 20.0,
+        "cost_eur": 6.560679,
+        "elec_kwh": 25.661777,
+        "evening_kwh": 5.719298
+      },
+      "case": "capacity_3",
+      "ceiling_c": 23.0,
+      "envelope": "current",
+      "optimised": {
+        "T_end_c": 20.0,
+        "cost_eur": 6.092811,
+        "elec_kwh": 25.714873,
+        "evening_kwh": 2.72212
+      },
+      "saving_eur": 0.467868,
+      "status": "ok"
+    },
+    {
+      "avoided_kwh": 7.403655,
+      "avoided_pct": 100.0,
+      "baseline": {
+        "T_end_c": 20.0,
+        "cost_eur": 6.841768,
+        "elec_kwh": 25.71447,
+        "evening_kwh": 7.403655
+      },
+      "case": "capacity_8",
+      "ceiling_c": 23.0,
+      "envelope": "current",
+      "optimised": {
+        "T_end_c": 20.0,
+        "cost_eur": 5.655516,
+        "elec_kwh": 25.70689,
+        "evening_kwh": 0.0
+      },
+      "saving_eur": 1.186252,
+      "status": "ok"
+    },
+    {
+      "avoided_kwh": 4.024925,
+      "avoided_pct": 63.372971,
+      "baseline": {
+        "T_end_c": 20.0,
+        "cost_eur": 6.90296,
+        "elec_kwh": 26.75806,
+        "evening_kwh": 6.35117
+      },
+      "case": "gains_x0.5",
+      "ceiling_c": 23.0,
+      "envelope": "current",
+      "optimised": {
+        "T_end_c": 20.0,
+        "cost_eur": 6.271247,
+        "elec_kwh": 26.813852,
+        "evening_kwh": 2.326245
+      },
+      "saving_eur": 0.631714,
+      "status": "ok"
+    },
+    {
+      "avoided_kwh": 3.999673,
+      "avoided_pct": 70.798008,
+      "baseline": {
+        "T_end_c": 20.0,
+        "cost_eur": 6.314345,
+        "elec_kwh": 24.592903,
+        "evening_kwh": 5.649415
+      },
+      "case": "gains_x1.5",
+      "ceiling_c": 23.0,
+      "envelope": "current",
+      "optimised": {
+        "T_end_c": 20.0,
+        "cost_eur": 5.691487,
+        "elec_kwh": 24.670585,
+        "evening_kwh": 1.649742
+      },
+      "saving_eur": 0.622858,
+      "status": "ok"
+    },
+    {
+      "avoided_kwh": 4.015743,
+      "avoided_pct": 96.86438,
+      "baseline": {
+        "T_end_c": 20.0,
+        "cost_eur": 4.170749,
+        "elec_kwh": 15.942866,
+        "evening_kwh": 4.145738
+      },
+      "case": "nominal",
+      "ceiling_c": 23.0,
+      "envelope": "insulated",
+      "optimised": {
+        "T_end_c": 20.0,
+        "cost_eur": 3.528332,
+        "elec_kwh": 15.943333,
+        "evening_kwh": 0.129995
+      },
+      "saving_eur": 0.642416,
+      "status": "ok"
+    },
+    {
+      "avoided_kwh": 4.265968,
+      "avoided_pct": 86.114462,
+      "baseline": {
+        "T_end_c": 20.0,
+        "cost_eur": 5.235437,
+        "elec_kwh": 20.194655,
+        "evening_kwh": 4.953834
+      },
+      "case": "outdoor_minus3",
+      "ceiling_c": 23.0,
+      "envelope": "insulated",
+      "optimised": {
+        "T_end_c": 20.0,
+        "cost_eur": 4.546119,
+        "elec_kwh": 20.163909,
+        "evening_kwh": 0.687867
+      },
+      "saving_eur": 0.689319,
+      "status": "ok"
+    },
+    {
+      "avoided_kwh": 3.418451,
+      "avoided_pct": 100.0,
+      "baseline": {
+        "T_end_c": 20.0,
+        "cost_eur": 3.212285,
+        "elec_kwh": 12.11515,
+        "evening_kwh": 3.418451
+      },
+      "case": "outdoor_plus3",
+      "ceiling_c": 23.0,
+      "envelope": "insulated",
+      "optimised": {
+        "T_end_c": 20.0,
+        "cost_eur": 2.664355,
+        "elec_kwh": 12.110704,
+        "evening_kwh": 0.0
+      },
+      "saving_eur": 0.54793,
+      "status": "ok"
+    },
+    {
+      "avoided_kwh": 3.005651,
+      "avoided_pct": 79.202354,
+      "baseline": {
+        "T_end_c": 20.0,
+        "cost_eur": 4.113029,
+        "elec_kwh": 15.935656,
+        "evening_kwh": 3.794902
+      },
+      "case": "capacity_3",
+      "ceiling_c": 23.0,
+      "envelope": "insulated",
+      "optimised": {
+        "T_end_c": 20.0,
+        "cost_eur": 3.634229,
+        "elec_kwh": 15.945221,
+        "evening_kwh": 0.78925
+      },
+      "saving_eur": 0.4788,
+      "status": "ok"
+    },
+    {
+      "avoided_kwh": 5.549185,
+      "avoided_pct": 100.0,
+      "baseline": {
+        "T_end_c": 20.205174,
+        "cost_eur": 4.530247,
+        "elec_kwh": 16.55626,
+        "evening_kwh": 5.549185
+      },
+      "case": "capacity_8",
+      "ceiling_c": 23.0,
+      "envelope": "insulated",
+      "optimised": {
+        "T_end_c": 20.205174,
+        "cost_eur": 3.602092,
+        "elec_kwh": 16.373147,
+        "evening_kwh": 0.0
+      },
+      "saving_eur": 0.928154,
+      "status": "ok"
+    },
+    {
+      "avoided_kwh": 4.032217,
+      "avoided_pct": 89.672288,
+      "baseline": {
+        "T_end_c": 20.0,
+        "cost_eur": 4.46538,
+        "elec_kwh": 17.026917,
+        "evening_kwh": 4.496615
+      },
+      "case": "gains_x0.5",
+      "ceiling_c": 23.0,
+      "envelope": "insulated",
+      "optimised": {
+        "T_end_c": 20.0,
+        "cost_eur": 3.816942,
+        "elec_kwh": 17.011993,
+        "evening_kwh": 0.464397
+      },
+      "saving_eur": 0.648438,
+      "status": "ok"
+    },
+    {
+      "avoided_kwh": 3.79486,
+      "avoided_pct": 100.0,
+      "baseline": {
+        "T_end_c": 20.0,
+        "cost_eur": 3.876685,
+        "elec_kwh": 14.861399,
+        "evening_kwh": 3.79486
+      },
+      "case": "gains_x1.5",
+      "ceiling_c": 23.0,
+      "envelope": "insulated",
+      "optimised": {
+        "T_end_c": 20.0,
+        "cost_eur": 3.268531,
+        "elec_kwh": 14.856959,
+        "evening_kwh": 0.0
+      },
+      "saving_eur": 0.608154,
+      "status": "ok"
+    },
+    {
+      "avoided_kwh": 4.631531,
+      "avoided_pct": 77.188417,
+      "baseline": {
+        "T_end_c": 20.0,
+        "cost_eur": 6.608653,
+        "elec_kwh": 25.675482,
+        "evening_kwh": 6.000292
+      },
+      "case": "nominal",
+      "ceiling_c": 23.5,
+      "envelope": "current",
+      "optimised": {
+        "T_end_c": 20.0,
+        "cost_eur": 5.901541,
+        "elec_kwh": 25.829723,
+        "evening_kwh": 1.368762
+      },
+      "saving_eur": 0.707112,
+      "status": "ok"
+    },
+    {
+      "avoided_kwh": 4.920823,
+      "avoided_pct": 68.131563,
+      "baseline": {
+        "T_end_c": 20.0,
+        "cost_eur": 8.25625,
+        "elec_kwh": 32.275658,
+        "evening_kwh": 7.222531
+      },
+      "case": "outdoor_minus3",
+      "ceiling_c": 23.5,
+      "envelope": "current",
+      "optimised": {
+        "T_end_c": 20.0,
+        "cost_eur": 7.498333,
+        "elec_kwh": 32.409362,
+        "evening_kwh": 2.301708
+      },
+      "saving_eur": 0.757917,
+      "status": "ok"
+    },
+    {
+      "avoided_kwh": 4.353079,
+      "avoided_pct": 88.833312,
+      "baseline": {
+        "T_end_c": 20.0,
+        "cost_eur": 5.123055,
+        "elec_kwh": 19.722773,
+        "evening_kwh": 4.900278
+      },
+      "case": "outdoor_plus3",
+      "ceiling_c": 23.5,
+      "envelope": "current",
+      "optimised": {
+        "T_end_c": 20.0,
+        "cost_eur": 4.468171,
+        "elec_kwh": 19.911906,
+        "evening_kwh": 0.547199
+      },
+      "saving_eur": 0.654883,
+      "status": "ok"
+    },
+    {
+      "avoided_kwh": 3.464317,
+      "avoided_pct": 60.572414,
+      "baseline": {
+        "T_end_c": 20.0,
+        "cost_eur": 6.560679,
+        "elec_kwh": 25.661777,
+        "evening_kwh": 5.719298
+      },
+      "case": "capacity_3",
+      "ceiling_c": 23.5,
+      "envelope": "current",
+      "optimised": {
+        "T_end_c": 20.0,
+        "cost_eur": 6.033377,
+        "elec_kwh": 25.784454,
+        "evening_kwh": 2.254981
+      },
+      "saving_eur": 0.527302,
+      "status": "ok"
+    },
+    {
+      "avoided_kwh": 7.403655,
+      "avoided_pct": 100.0,
+      "baseline": {
+        "T_end_c": 20.0,
+        "cost_eur": 6.841768,
+        "elec_kwh": 25.71447,
+        "evening_kwh": 7.403655
+      },
+      "case": "capacity_8",
+      "ceiling_c": 23.5,
+      "envelope": "current",
+      "optimised": {
+        "T_end_c": 20.0,
+        "cost_eur": 5.655516,
+        "elec_kwh": 25.70689,
+        "evening_kwh": 0.0
+      },
+      "saving_eur": 1.186252,
+      "status": "ok"
+    },
+    {
+      "avoided_kwh": 4.644156,
+      "avoided_pct": 73.122854,
+      "baseline": {
+        "T_end_c": 20.0,
+        "cost_eur": 6.90296,
+        "elec_kwh": 26.75806,
+        "evening_kwh": 6.35117
+      },
+      "case": "gains_x0.5",
+      "ceiling_c": 23.5,
+      "envelope": "current",
+      "optimised": {
+        "T_end_c": 20.0,
+        "cost_eur": 6.19142,
+        "elec_kwh": 26.901356,
+        "evening_kwh": 1.707013
+      },
+      "saving_eur": 0.71154,
+      "status": "ok"
+    },
+    {
+      "avoided_kwh": 4.616971,
+      "avoided_pct": 81.724751,
+      "baseline": {
+        "T_end_c": 20.0,
+        "cost_eur": 6.314345,
+        "elec_kwh": 24.592903,
+        "evening_kwh": 5.649415
+      },
+      "case": "gains_x1.5",
+      "ceiling_c": 23.5,
+      "envelope": "current",
+      "optimised": {
+        "T_end_c": 20.0,
+        "cost_eur": 5.612396,
+        "elec_kwh": 24.760023,
+        "evening_kwh": 1.032445
+      },
+      "saving_eur": 0.701949,
+      "status": "ok"
+    },
+    {
+      "avoided_kwh": 4.145738,
+      "avoided_pct": 100.0,
+      "baseline": {
+        "T_end_c": 20.0,
+        "cost_eur": 4.170749,
+        "elec_kwh": 15.942866,
+        "evening_kwh": 4.145738
+      },
+      "case": "nominal",
+      "ceiling_c": 23.5,
+      "envelope": "insulated",
+      "optimised": {
+        "T_end_c": 20.0,
+        "cost_eur": 3.510373,
+        "elec_kwh": 15.956242,
+        "evening_kwh": 0.0
+      },
+      "saving_eur": 0.660375,
+      "status": "ok"
+    },
+    {
+      "avoided_kwh": 4.927036,
+      "avoided_pct": 99.459035,
+      "baseline": {
+        "T_end_c": 20.0,
+        "cost_eur": 5.235437,
+        "elec_kwh": 20.194655,
+        "evening_kwh": 4.953834
+      },
+      "case": "outdoor_minus3",
+      "ceiling_c": 23.5,
+      "envelope": "insulated",
+      "optimised": {
+        "T_end_c": 20.0,
+        "cost_eur": 4.45421,
+        "elec_kwh": 20.226918,
+        "evening_kwh": 0.026799
+      },
+      "saving_eur": 0.781228,
+      "status": "ok"
+    },
+    {
+      "avoided_kwh": 3.418451,
+      "avoided_pct": 100.0,
+      "baseline": {
+        "T_end_c": 20.0,
+        "cost_eur": 3.212285,
+        "elec_kwh": 12.11515,
+        "evening_kwh": 3.418451
+      },
+      "case": "outdoor_plus3",
+      "ceiling_c": 23.5,
+      "envelope": "insulated",
+      "optimised": {
+        "T_end_c": 20.0,
+        "cost_eur": 2.664355,
+        "elec_kwh": 12.110704,
+        "evening_kwh": 0.0
+      },
+      "saving_eur": 0.54793,
+      "status": "ok"
+    },
+    {
+      "avoided_kwh": 3.462023,
+      "avoided_pct": 91.228261,
+      "baseline": {
+        "T_end_c": 20.0,
+        "cost_eur": 4.113029,
+        "elec_kwh": 15.935656,
+        "evening_kwh": 3.794902
+      },
+      "case": "capacity_3",
+      "ceiling_c": 23.5,
+      "envelope": "insulated",
+      "optimised": {
+        "T_end_c": 20.0,
+        "cost_eur": 3.571842,
+        "elec_kwh": 15.993551,
+        "evening_kwh": 0.332879
+      },
+      "saving_eur": 0.541187,
+      "status": "ok"
+    },
+    {
+      "avoided_kwh": 5.549185,
+      "avoided_pct": 100.0,
+      "baseline": {
+        "T_end_c": 20.205174,
+        "cost_eur": 4.530247,
+        "elec_kwh": 16.55626,
+        "evening_kwh": 5.549185
+      },
+      "case": "capacity_8",
+      "ceiling_c": 23.5,
+      "envelope": "insulated",
+      "optimised": {
+        "T_end_c": 20.205174,
+        "cost_eur": 3.602092,
+        "elec_kwh": 16.373147,
+        "evening_kwh": 0.0
+      },
+      "saving_eur": 0.928154,
+      "status": "ok"
+    },
+    {
+      "avoided_kwh": 4.496615,
+      "avoided_pct": 100.0,
+      "baseline": {
+        "T_end_c": 20.0,
+        "cost_eur": 4.46538,
+        "elec_kwh": 17.026917,
+        "evening_kwh": 4.496615
+      },
+      "case": "gains_x0.5",
+      "ceiling_c": 23.5,
+      "envelope": "insulated",
+      "optimised": {
+        "T_end_c": 20.0,
+        "cost_eur": 3.752784,
+        "elec_kwh": 17.05811,
+        "evening_kwh": 0.0
+      },
+      "saving_eur": 0.712596,
+      "status": "ok"
+    },
+    {
+      "avoided_kwh": 3.79486,
+      "avoided_pct": 100.0,
+      "baseline": {
+        "T_end_c": 20.0,
+        "cost_eur": 3.876685,
+        "elec_kwh": 14.861399,
+        "evening_kwh": 3.79486
+      },
+      "case": "gains_x1.5",
+      "ceiling_c": 23.5,
+      "envelope": "insulated",
+      "optimised": {
+        "T_end_c": 20.0,
+        "cost_eur": 3.268531,
+        "elec_kwh": 14.856959,
+        "evening_kwh": 0.0
+      },
+      "saving_eur": 0.608154,
+      "status": "ok"
+    },
+    {
+      "avoided_kwh": 5.230846,
+      "avoided_pct": 87.17652,
+      "baseline": {
+        "T_end_c": 20.0,
+        "cost_eur": 6.608653,
+        "elec_kwh": 25.675482,
+        "evening_kwh": 6.000292
+      },
+      "case": "nominal",
+      "ceiling_c": 24.0,
+      "envelope": "current",
+      "optimised": {
+        "T_end_c": 20.0,
+        "cost_eur": 5.829283,
+        "elec_kwh": 25.937143,
+        "evening_kwh": 0.769446
+      },
+      "saving_eur": 0.77937,
+      "status": "ok"
+    },
+    {
+      "avoided_kwh": 5.574456,
+      "avoided_pct": 77.181483,
+      "baseline": {
+        "T_end_c": 20.0,
+        "cost_eur": 8.25625,
+        "elec_kwh": 32.275658,
+        "evening_kwh": 7.222531
+      },
+      "case": "outdoor_minus3",
+      "ceiling_c": 24.0,
+      "envelope": "current",
+      "optimised": {
+        "T_end_c": 20.0,
+        "cost_eur": 7.41353,
+        "elec_kwh": 32.499262,
+        "evening_kwh": 1.648074
+      },
+      "saving_eur": 0.84272,
+      "status": "ok"
+    },
+    {
+      "avoided_kwh": 4.900278,
+      "avoided_pct": 100.0,
+      "baseline": {
+        "T_end_c": 20.0,
+        "cost_eur": 5.123055,
+        "elec_kwh": 19.722773,
+        "evening_kwh": 4.900278
+      },
+      "case": "outdoor_plus3",
+      "ceiling_c": 24.0,
+      "envelope": "current",
+      "optimised": {
+        "T_end_c": 20.0,
+        "cost_eur": 4.40515,
+        "elec_kwh": 20.023411,
+        "evening_kwh": 0.0
+      },
+      "saving_eur": 0.717904,
+      "status": "ok"
+    },
+    {
+      "avoided_kwh": 3.909751,
+      "avoided_pct": 68.360681,
+      "baseline": {
+        "T_end_c": 20.0,
+        "cost_eur": 6.560679,
+        "elec_kwh": 25.661777,
+        "evening_kwh": 5.719298
+      },
+      "case": "capacity_3",
+      "ceiling_c": 24.0,
+      "envelope": "current",
+      "optimised": {
+        "T_end_c": 20.0,
+        "cost_eur": 5.983666,
+        "elec_kwh": 25.882446,
+        "evening_kwh": 1.809547
+      },
+      "saving_eur": 0.577013,
+      "status": "ok"
+    },
+    {
+      "avoided_kwh": 7.403655,
+      "avoided_pct": 100.0,
+      "baseline": {
+        "T_end_c": 20.0,
+        "cost_eur": 6.841768,
+        "elec_kwh": 25.71447,
+        "evening_kwh": 7.403655
+      },
+      "case": "capacity_8",
+      "ceiling_c": 24.0,
+      "envelope": "current",
+      "optimised": {
+        "T_end_c": 20.0,
+        "cost_eur": 5.655516,
+        "elec_kwh": 25.70689,
+        "evening_kwh": 0.0
+      },
+      "saving_eur": 1.186252,
+      "status": "ok"
+    },
+    {
+      "avoided_kwh": 5.25569,
+      "avoided_pct": 82.751537,
+      "baseline": {
+        "T_end_c": 20.0,
+        "cost_eur": 6.90296,
+        "elec_kwh": 26.75806,
+        "evening_kwh": 6.35117
+      },
+      "case": "gains_x0.5",
+      "ceiling_c": 24.0,
+      "envelope": "current",
+      "optimised": {
+        "T_end_c": 20.0,
+        "cost_eur": 6.114519,
+        "elec_kwh": 26.996558,
+        "evening_kwh": 1.095479
+      },
+      "saving_eur": 0.788441,
+      "status": "ok"
+    },
+    {
+      "avoided_kwh": 5.206002,
+      "avoided_pct": 92.151163,
+      "baseline": {
+        "T_end_c": 20.0,
+        "cost_eur": 6.314345,
+        "elec_kwh": 24.592903,
+        "evening_kwh": 5.649415
+      },
+      "case": "gains_x1.5",
+      "ceiling_c": 24.0,
+      "envelope": "current",
+      "optimised": {
+        "T_end_c": 20.0,
+        "cost_eur": 5.544046,
+        "elec_kwh": 24.877728,
+        "evening_kwh": 0.443413
+      },
+      "saving_eur": 0.770299,
+      "status": "ok"
+    },
+    {
+      "avoided_kwh": 4.145738,
+      "avoided_pct": 100.0,
+      "baseline": {
+        "T_end_c": 20.0,
+        "cost_eur": 4.170749,
+        "elec_kwh": 15.942866,
+        "evening_kwh": 4.145738
+      },
+      "case": "nominal",
+      "ceiling_c": 24.0,
+      "envelope": "insulated",
+      "optimised": {
+        "T_end_c": 20.0,
+        "cost_eur": 3.510373,
+        "elec_kwh": 15.956242,
+        "evening_kwh": 0.0
+      },
+      "saving_eur": 0.660375,
+      "status": "ok"
+    },
+    {
+      "avoided_kwh": 4.953834,
+      "avoided_pct": 100.0,
+      "baseline": {
+        "T_end_c": 20.0,
+        "cost_eur": 5.235437,
+        "elec_kwh": 20.194655,
+        "evening_kwh": 4.953834
+      },
+      "case": "outdoor_minus3",
+      "ceiling_c": 24.0,
+      "envelope": "insulated",
+      "optimised": {
+        "T_end_c": 20.0,
+        "cost_eur": 4.450484,
+        "elec_kwh": 20.229473,
+        "evening_kwh": 0.0
+      },
+      "saving_eur": 0.784954,
+      "status": "ok"
+    },
+    {
+      "avoided_kwh": 3.418451,
+      "avoided_pct": 100.0,
+      "baseline": {
+        "T_end_c": 20.0,
+        "cost_eur": 3.212285,
+        "elec_kwh": 12.11515,
+        "evening_kwh": 3.418451
+      },
+      "case": "outdoor_plus3",
+      "ceiling_c": 24.0,
+      "envelope": "insulated",
+      "optimised": {
+        "T_end_c": 20.0,
+        "cost_eur": 2.664355,
+        "elec_kwh": 12.110704,
+        "evening_kwh": 0.0
+      },
+      "saving_eur": 0.54793,
+      "status": "ok"
+    },
+    {
+      "avoided_kwh": 3.794902,
+      "avoided_pct": 100.0,
+      "baseline": {
+        "T_end_c": 20.0,
+        "cost_eur": 4.113029,
+        "elec_kwh": 15.935656,
+        "evening_kwh": 3.794902
+      },
+      "case": "capacity_3",
+      "ceiling_c": 24.0,
+      "envelope": "insulated",
+      "optimised": {
+        "T_end_c": 20.0,
+        "cost_eur": 3.530335,
+        "elec_kwh": 16.046975,
+        "evening_kwh": 0.0
+      },
+      "saving_eur": 0.582694,
+      "status": "ok"
+    },
+    {
+      "avoided_kwh": 5.549185,
+      "avoided_pct": 100.0,
+      "baseline": {
+        "T_end_c": 20.205174,
+        "cost_eur": 4.530247,
+        "elec_kwh": 16.55626,
+        "evening_kwh": 5.549185
+      },
+      "case": "capacity_8",
+      "ceiling_c": 24.0,
+      "envelope": "insulated",
+      "optimised": {
+        "T_end_c": 20.205174,
+        "cost_eur": 3.602092,
+        "elec_kwh": 16.373147,
+        "evening_kwh": 0.0
+      },
+      "saving_eur": 0.928154,
+      "status": "ok"
+    },
+    {
+      "avoided_kwh": 4.496615,
+      "avoided_pct": 100.0,
+      "baseline": {
+        "T_end_c": 20.0,
+        "cost_eur": 4.46538,
+        "elec_kwh": 17.026917,
+        "evening_kwh": 4.496615
+      },
+      "case": "gains_x0.5",
+      "ceiling_c": 24.0,
+      "envelope": "insulated",
+      "optimised": {
+        "T_end_c": 20.0,
+        "cost_eur": 3.752784,
+        "elec_kwh": 17.05811,
+        "evening_kwh": 0.0
+      },
+      "saving_eur": 0.712596,
+      "status": "ok"
+    },
+    {
+      "avoided_kwh": 3.79486,
+      "avoided_pct": 100.0,
+      "baseline": {
+        "T_end_c": 20.0,
+        "cost_eur": 3.876685,
+        "elec_kwh": 14.861399,
+        "evening_kwh": 3.79486
+      },
+      "case": "gains_x1.5",
+      "ceiling_c": 24.0,
+      "envelope": "insulated",
+      "optimised": {
+        "T_end_c": 20.0,
+        "cost_eur": 3.268531,
+        "elec_kwh": 14.856959,
+        "evening_kwh": 0.0
+      },
+      "saving_eur": 0.608154,
+      "status": "ok"
+    }
+  ],
+  "solver": {
+    "method": "highs",
+    "name": "scipy.optimize.linprog",
+    "scipy_version": "1.18.1"
+  },
+  "synthetic": true
+}
