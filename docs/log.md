@@ -20,3 +20,4 @@ sources: []
 - Regression check T8 matched the scratch-run values at 22.5 °C without changes to the fixture.
 - Added the optional language layer (`preheat/ask.py`), a hand-written offline trace (`preheat/traces/demo.json`) and the phrasings file for a later live check. No live check has been run.
 - Added README, tests T1 to T18 and this documentation bundle.
+- Added `pytest.ini` so a bare `pytest -q` finds the package (found in the clean-clone rehearsal).
