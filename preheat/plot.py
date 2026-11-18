@@ -28,13 +28,18 @@ def flex_curve(res, path):
             bands = [b for b in res["bands"] if b["envelope"] == env]
             lo = [b[key + "_min"] for b in bands]
             hi = [b[key + "_max"] for b in bands]
-            ax.fill_between(CEILINGS, lo, hi, color=COL[env], alpha=0.18, lw=0)
+            ax.fill_between(CEILINGS, lo, hi, color=COL[env], alpha=0.12, lw=0)
+            ax.plot(CEILINGS, lo, ":", color=COL[env], lw=0.9)
+            ax.plot(CEILINGS, hi, ":", color=COL[env], lw=0.9)
             ax.plot(CEILINGS, nom, "-o", color=COL[env], ms=4)
             up = nom[-1] >= max(_pick(res, o, CEILINGS[-1])[key] for o in COL)
             ax.annotate(LAB[env], (CEILINGS[-1], nom[-1]), xytext=(-6, 9 if up else -13),
                         textcoords="offset points", color=COL[env], ha="right",
                         fontsize=9)
-        ax.axvline(REFERENCE_CEILING, color="grey", ls=":", lw=1)
+        ax.axvline(REFERENCE_CEILING, color="grey", ls="--", lw=0.8)
+        ax.text(REFERENCE_CEILING, 0.01, f" example in text ({REFERENCE_CEILING} °C)",
+                transform=ax.get_xaxis_transform(), color="grey", fontsize=8,
+                ha="left", va="bottom")
         ax.set_xticks(CEILINGS)
         ax.set_xlim(21.4, 24.1)
         ax.set_ylim(*ylim)
@@ -51,8 +56,8 @@ def flex_curve(res, path):
              f"€{cur['baseline']['cost_eur']:.2f} a day; better insulated avoids "
              f"{ins['avoided_kwh']:.2f} kWh ({ins['avoided_pct']:.1f}%), saving "
              f"€{ins['saving_eur']:.2f} of €{ins['baseline']['cost_eur']:.2f}.")
-    line2 = ("One synthetic winter day. Lines: nominal case. Shading: range across 7 "
-             "one-at-a-time what-if cases (not probabilities).")
+    line2 = ("One synthetic winter day. Solid lines: nominal case. Shading between dotted "
+             "lines: range across 7 one-at-a-time what-if cases (not probabilities).")
     if n_ok < 7:
         line2 += f" Some bands cover fewer than 7 cases (minimum {n_ok})."
     fig.text(0.5, -0.02, line1 + "\n" + line2, ha="center", va="top", fontsize=9)
@@ -67,8 +72,8 @@ def example_day(res, path):
     h = np.arange(25)
     floor = np.array(ex["floor_c"])
     ceil = ex["ceiling_c"]
-    a1.fill_between(h, floor, ceil, step="post", color="#2ca02c", alpha=0.12,
-                    label="Comfort band")
+    # Bounds are checked at the hourly points only, so join them like the temperature lines.
+    a1.fill_between(h, floor, ceil, color="#2ca02c", alpha=0.12, label="Allowed range")
     a1.plot(h, ex["T_baseline_c"], "--", color="grey", label="Price-blind rule")
     a1.plot(h, ex["T_optimised_c"], "-", color=COL["current"], label="Cost-minimising schedule")
     a1.plot([18, 19, 20, 21], [21] * 4, "k_", ms=10, label="Evening checkpoints")
@@ -76,8 +81,10 @@ def example_day(res, path):
     a1.legend(fontsize=8, loc="lower left", frameon=False)
     w = 0.4
     t = np.arange(24)
-    a2.bar(t + 0.5 - w / 2, ex["p_baseline_kw"], w, color="grey")
-    a2.bar(t + 0.5 + w / 2, ex["p_optimised_kw"], w, color=COL["current"])
+    a2.bar(t + 0.5 - w / 2, ex["p_baseline_kw"], w, color="grey", label="Price-blind rule")
+    a2.bar(t + 0.5 + w / 2, ex["p_optimised_kw"], w, color=COL["current"],
+           label="Cost-minimising schedule")
+    a2.legend(fontsize=8, loc="upper left", frameon=False)
     a2.set_ylabel("Heat-pump electricity (kW)")
     a2.set_xlabel("Hour of day")
     a2.set_xticks(range(0, 25, 3))
@@ -88,5 +95,6 @@ def example_day(res, path):
             ax.spines[s].set_visible(False)
     a1.text(19.5, a1.get_ylim()[1], f"Expensive hours (€{PRICE_EVENING:.2f}/kWh)",
             ha="center", va="bottom", fontsize=8)
+    fig.suptitle(f"Example day: current house, maximum {ceil} °C (nominal case)")
     fig.savefig(path, **SAVE)
     plt.close(fig)

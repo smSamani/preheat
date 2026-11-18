@@ -16,7 +16,8 @@ Left: the share of evening heat-pump electricity avoided. Right: euros saved ove
 
 - At 22.5 °C on the nominal day, the current house avoids 3.38 kWh (56.3%) of its 6.00 kWh evening use and saves €0.54 on a day that otherwise costs €6.61 to heat.
 - At 22.5 °C the better-insulated house avoids 3.39 kWh (81.7%) of its 4.15 kWh evening use and saves €0.55 on a day that otherwise costs €4.17 to heat.
-- The two measures can rank the houses differently: at 22.5 °C the shares are 56.3% against 81.7% while the savings are €0.54 against €0.55, and at 23.5 °C the better-insulated house avoids 4.15 kWh (100.0%) and saves €0.66, while the current house avoids 4.63 kWh (77.2%) and saves €0.71.
+- At 22.5 °C both measures put the better-insulated house slightly ahead, but very unevenly: 81.7% against 56.3% of evening use, yet only €0.55 against €0.54 saved. The insulated house uses less in the evening to begin with, so the same kWh is a bigger share of it.
+- At 23.5 °C the two measures disagree. The better-insulated house avoids all of its evening use, 4.15 kWh (100.0%), and saves €0.66; it cannot avoid more, so its saving stops growing. The current house avoids 4.63 kWh (77.2%) and saves more, €0.71.
 - The savings are small: between €0.34 (21.5 °C) and €0.78 (24.0 °C) per synthetic day for the current house, in absolute euros.
 - The what-if range is wide. At 22.5 °C the current house avoids 44.1% (2.52 kWh, €0.40 saved) in the lighter-house case and 91.8% (6.80 kWh, €1.10 saved) in the heavier-house case, so how much heat the house can store matters a great deal.
 
@@ -26,11 +27,13 @@ All numbers come from `results.json`, which `python -m preheat` writes.
 
 ![Indoor temperature and heat-pump power through the day, with the expensive hours shaded](figures/example_day.png)
 
-The price-blind rule only starts heating when it has to, so it runs hard inside the expensive hours. The cost-minimising schedule heats before 17:00 to reach the top of the allowed band, then lets the house coast through the evening while staying at or above the evening comfort level.
+The price-blind rule only starts heating when it has to, so it runs hard inside the expensive hours. The cost-minimising schedule heats hard just before 17:00, up to the top of the allowed range, so the house drifts down through the evening and needs much less heating in the expensive hours (it still tops up at 18:00 to 21:00 to stay at 21 °C).
 
 ## How it works
 
-The house is one lump with heat capacity C and a heat-loss coefficient UA, updated hourly with the exact solution `T[t+1] = a·T[t] + (1−a)·(Tout[t] + (COP[t]·p[t] + gains[t])/UA)`, where `a = exp(−UA/C)`. A linear programme picks the cheapest hourly heat-pump power that keeps the temperature inside the band. The baseline heats each hour just enough to reach the next hour's minimum. Every schedule is re-checked by an independent simulation, and if a bound is broken no comparison is shown.
+In plain words: the house is treated as one big "heat battery" that leaks heat to the outside. The heat pump fills it; how much heat it delivers per unit of electricity (the COP, about 3 here) is lower when it is colder outside. The tool then finds the cheapest hour-by-hour heating plan that keeps the house inside the allowed temperatures.
+
+The house is one lump with heat capacity C and a heat-loss coefficient UA, updated hourly with the exact solution `T[t+1] = a·T[t] + (1−a)·(Tout[t] + (COP[t]·p[t] + gains[t])/UA)`, where `a = exp(−UA/C)`. C (kWh/K) is how much energy it takes to warm the house by one degree; UA (kW/K) is how fast heat leaks out per degree of difference to outside. A linear programme (a standard method for finding the cheapest plan under straight-line rules) picks the cheapest hourly heat-pump power that keeps the temperature inside the band. The baseline heats each hour just enough to reach the next hour's minimum. Every schedule is re-checked by an independent simulation, and if a bound is broken no comparison is shown.
 
 ## Assumptions (all synthetic)
 

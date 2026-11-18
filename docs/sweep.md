@@ -20,4 +20,4 @@ Six ceilings (21.5 to 24 °C in 0.5 °C steps) × two envelopes × seven cases =
 
 `compare(ceiling_c)` in `sweep.py` uses the same code path and is the single tool the language layer may call.
 
-Figures: `figures/flex_curve.png` (two panels, avoided share and euros saved per day, caption numbers read from the records) and `figures/example_day.png` (temperature, comfort band and hourly power for the current house at 22.5 °C).
+Figures: `figures/flex_curve.png` (two panels, avoided share and euros saved per day; band edges drawn as dotted lines so overlapping bands stay distinguishable; the 22.5 °C reference line is labelled; caption numbers read from the records) and `figures/example_day.png` (temperature, allowed range and hourly power for the current house at 22.5 °C, with a legend on both panels). The allowed range is drawn by joining the hourly bound points, the same way as the temperature lines, because bounds are only checked at those points; within an hour the exact trajectory is monotone, so an hourly check is enough.
