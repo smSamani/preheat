@@ -1,0 +1,233 @@
+{
+  "format": "preheat-trace/1",
+  "source": "hand-written",
+  "model": null,
+  "recorded_on": null,
+  "results_format": "preheat-results/1",
+  "sessions": [
+    {
+      "name": "valid request, confirmed",
+      "turns": [
+        {
+          "role": "user",
+          "text": "I'm fine with it getting up to 22 and a half"
+        },
+        {
+          "role": "model",
+          "output": {
+            "type": "tool_call",
+            "name": "compare",
+            "arguments": {
+              "ceiling_c": 22.5
+            }
+          }
+        },
+        {
+          "role": "program",
+          "text": "Maximum 22.5 °C, all day — correct? (yes/no)"
+        },
+        {
+          "role": "user",
+          "text": "yes"
+        },
+        {
+          "role": "tool",
+          "name": "compare",
+          "arguments": {
+            "ceiling_c": 22.5
+          },
+          "result": {
+            "status": "ok",
+            "ceiling_c": 22.5,
+            "synthetic": true,
+            "envelopes": {
+              "current": {
+                "status": "ok",
+                "baseline_evening_kwh": 6.0002923854783,
+                "optimised_evening_kwh": 2.6221670106255397,
+                "avoided_kwh": 3.37812537485276,
+                "avoided_pct": 56.299346062341606,
+                "baseline_cost_eur": 6.6086527425246056,
+                "optimised_cost_eur": 6.066871191651849,
+                "saving_eur": 0.5417815508727566,
+                "case_range": {
+                  "avoided_pct_min": 44.07946273573261,
+                  "avoided_pct_max": 91.82578620887044,
+                  "saving_eur_min": 0.39877691388880177,
+                  "saving_eur_max": 1.1008251352973355,
+                  "n_cases_ok": 7
+                }
+              },
+              "insulated": {
+                "status": "ok",
+                "baseline_evening_kwh": 4.14573757092467,
+                "optimised_evening_kwh": 0.7584180864539675,
+                "avoided_kwh": 3.3873194844707024,
+                "avoided_pct": 81.70607585552482,
+                "baseline_cost_eur": 4.170748536025363,
+                "optimised_cost_eur": 3.61666340813123,
+                "saving_eur": 0.5540851278941332,
+                "case_range": {
+                  "avoided_pct_min": 66.75825845269804,
+                  "avoided_pct_max": 100.00000000000001,
+                  "saving_eur_min": 0.40990630200519584,
+                  "saving_eur_max": 0.928154409461464,
+                  "n_cases_ok": 7
+                }
+              }
+            }
+          }
+        },
+        {
+          "role": "program",
+          "text": "Maximum indoor temperature 22.5 °C, one synthetic winter day (nominal case):\n  Current house: avoids 3.38 kWh of 6.00 kWh evening heat-pump electricity (56.3%).\n    Day heating cost €6.07 instead of €6.61: €0.54 saved that day.\n  Better-insulated house: avoids 3.39 kWh of 4.15 kWh evening heat-pump electricity (81.7%).\n    Day heating cost €3.62 instead of €4.17: €0.55 saved that day.\n  Across the what-if cases: avoided 44.1% to 91.8%, saved €0.40 to €1.10 (current, 7 what-if cases); avoided 66.8% to 100.0%, saved €0.41 to €0.93 (insulated, 7 what-if cases).\nThese are two different measures and can rank the houses differently. The tool does not recommend a setting."
+        }
+      ]
+    },
+    {
+      "name": "ambiguous, clarified, then confirmed",
+      "turns": [
+        {
+          "role": "user",
+          "text": "a bit warmer than usual"
+        },
+        {
+          "role": "model",
+          "output": {
+            "type": "text",
+            "text": "How warm is the most you would accept, in degrees? I can use 21.5 to 24."
+          }
+        },
+        {
+          "role": "program",
+          "text": "How warm is the most you would accept, in degrees? I can use 21.5 to 24."
+        },
+        {
+          "role": "user",
+          "text": "no warmer than 23 degrees"
+        },
+        {
+          "role": "model",
+          "output": {
+            "type": "tool_call",
+            "name": "compare",
+            "arguments": {
+              "ceiling_c": 23.0
+            }
+          }
+        },
+        {
+          "role": "program",
+          "text": "Maximum 23.0 °C, all day — correct? (yes/no)"
+        },
+        {
+          "role": "user",
+          "text": "yes"
+        },
+        {
+          "role": "tool",
+          "name": "compare",
+          "arguments": {
+            "ceiling_c": 23.0
+          },
+          "result": {
+            "status": "ok",
+            "ceiling_c": 23.0,
+            "synthetic": true,
+            "envelopes": {
+              "current": {
+                "status": "ok",
+                "baseline_evening_kwh": 6.0002923854783,
+                "optimised_evening_kwh": 1.987993235143624,
+                "avoided_kwh": 4.012299150334676,
+                "avoided_pct": 66.86839394768667,
+                "baseline_cost_eur": 6.6086527425246056,
+                "optimised_cost_eur": 5.981367001876171,
+                "saving_eur": 0.6272857406484347,
+                "case_range": {
+                  "avoided_pct_min": 52.404645655391995,
+                  "avoided_pct_max": 100.0,
+                  "saving_eur_min": 0.4678675407625086,
+                  "saving_eur_max": 1.1862522370399988,
+                  "n_cases_ok": 7
+                }
+              },
+              "insulated": {
+                "status": "ok",
+                "baseline_evening_kwh": 4.14573757092467,
+                "optimised_evening_kwh": 0.12999458731724273,
+                "avoided_kwh": 4.015742983607427,
+                "avoided_pct": 96.86437973718031,
+                "baseline_cost_eur": 4.170748536025363,
+                "optimised_cost_eur": 3.528332428241153,
+                "saving_eur": 0.6424161077842103,
+                "case_range": {
+                  "avoided_pct_min": 79.20235400202269,
+                  "avoided_pct_max": 100.00000000000001,
+                  "saving_eur_min": 0.47880003480477606,
+                  "saving_eur_max": 0.928154409461464,
+                  "n_cases_ok": 7
+                }
+              }
+            }
+          }
+        },
+        {
+          "role": "program",
+          "text": "Maximum indoor temperature 23.0 °C, one synthetic winter day (nominal case):\n  Current house: avoids 4.01 kWh of 6.00 kWh evening heat-pump electricity (66.9%).\n    Day heating cost €5.98 instead of €6.61: €0.63 saved that day.\n  Better-insulated house: avoids 4.02 kWh of 4.15 kWh evening heat-pump electricity (96.9%).\n    Day heating cost €3.53 instead of €4.17: €0.64 saved that day.\n  Across the what-if cases: avoided 52.4% to 100.0%, saved €0.47 to €1.19 (current, 7 what-if cases); avoided 79.2% to 100.0%, saved €0.48 to €0.93 (insulated, 7 what-if cases).\nThese are two different measures and can rank the houses differently. The tool does not recommend a setting."
+        }
+      ]
+    },
+    {
+      "name": "proposal cancelled",
+      "turns": [
+        {
+          "role": "user",
+          "text": "cap it at 24"
+        },
+        {
+          "role": "model",
+          "output": {
+            "type": "tool_call",
+            "name": "compare",
+            "arguments": {
+              "ceiling_c": 24
+            }
+          }
+        },
+        {
+          "role": "program",
+          "text": "Maximum 24.0 °C, all day — correct? (yes/no)"
+        },
+        {
+          "role": "user",
+          "text": "no"
+        },
+        {
+          "role": "program",
+          "text": "Cancelled. Nothing was calculated."
+        }
+      ]
+    },
+    {
+      "name": "unsupported edit",
+      "turns": [
+        {
+          "role": "user",
+          "text": "turn it down to 18 at night"
+        },
+        {
+          "role": "model",
+          "output": {
+            "type": "text",
+            "text": "Only the maximum indoor temperature can be changed here."
+          }
+        },
+        {
+          "role": "program",
+          "text": "Only the maximum indoor temperature can be changed here."
+        }
+      ]
+    }
+  ]
+}

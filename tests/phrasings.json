@@ -1,0 +1,17 @@
+[
+ {"id": "v1", "text": "up to 22 and a half", "expected": {"action": "propose", "ceiling_c": 22.5}},
+ {"id": "v2", "text": "22,5 is the most I'd want", "expected": {"action": "propose", "ceiling_c": 22.5}},
+ {"id": "v3", "text": "no warmer than 23 degrees", "expected": {"action": "propose", "ceiling_c": 23.0}},
+ {"id": "v4", "text": "cap it at 24", "expected": {"action": "propose", "ceiling_c": 24.0}},
+ {"id": "v5", "text": "max twenty-one and a half", "expected": {"action": "propose", "ceiling_c": 21.5}},
+ {"id": "v6", "text": "I'm ok with 23.5", "expected": {"action": "propose", "ceiling_c": 23.5}},
+ {"id": "v7", "text": "let it reach 22", "expected": {"action": "propose", "ceiling_c": 22.0}},
+ {"id": "a1", "text": "a bit warmer than usual", "expected": {"action": "clarify"}},
+ {"id": "a2", "text": "warm but not too warm", "expected": {"action": "clarify"}},
+ {"id": "a3", "text": "whatever is cheapest", "expected": {"action": "clarify"}},
+ {"id": "u1", "text": "drop to 18 at night", "expected": {"action": "decline"}},
+ {"id": "u2", "text": "switch the heat pump off at five", "expected": {"action": "decline"}},
+ {"id": "u3", "text": "set the maximum to 27", "expected": {"action": "decline"}},
+ {"id": "c1", "text": "up to 22 and a half", "followup": "no", "expected": {"action": "cancel"}},
+ {"id": "c2", "text": "cap it at 24", "followup": "cancel", "expected": {"action": "cancel"}}
+]
