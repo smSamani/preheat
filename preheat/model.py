@@ -27,10 +27,17 @@ def simulate(p, day):
     return T
 
 
-def check_bounds(p, T, day, ceiling):
-    """Human-readable violations; empty list if the schedule is fine."""
+def check_bounds(p, T, day, ceiling, L=None):
+    """Human-readable violations; empty list if the schedule is fine.
+
+    L is the floor for each state k = 0..24 (default: the fixture's floors)."""
     out = []
-    L = floors()
+    L = floors() if L is None else L
+    p, T = np.asarray(p, dtype=float), np.asarray(T, dtype=float)
+    if p.shape != (24,) or T.shape != (25,):
+        return [f"expected 24 powers and 25 temperatures, got {p.shape} and {T.shape}"]
+    if not (np.all(np.isfinite(p)) and np.all(np.isfinite(T))):
+        return ["schedule contains a non-finite value"]
     for t in range(24):
         if p[t] < -TOL_P or p[t] > day.P_MAX + TOL_P:
             out.append(f"power {p[t]:.4f} kW outside 0..{day.P_MAX} at hour {t}")
@@ -43,6 +50,10 @@ def check_bounds(p, T, day, ceiling):
 
 
 def energy_terms(p, T, day):
+    """Per-hour energy balance over the exact trajectory, and the reported metrics.
+
+    Every interval is one hour, so kW x 1 h = kWh: sum(p) is the day's electricity in kWh and
+    sum(price * p) its cost in EUR."""
     a = decay(day)
     tau = day.C / day.UA
     net = 0.0

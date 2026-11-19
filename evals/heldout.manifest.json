@@ -1,0 +1,11 @@
+{
+  "file": "evals/heldout.json",
+  "sha256": "c705b9829d3182f4d0c4b31009274f4f18553f10f816dded0d4bbbf692d39329",
+  "frozen_at": "2026-11-19T00:31:00+03:00",
+  "cases": 43,
+  "turns": 48,
+  "written_by": "a language model separate from the developer's tooling, from the public intent description in evals/heldout_brief.md only (sha256 1aa2f1bde63706fdc893f887746fbf541f7849383ea6dd6c2d3358abf171d747)",
+  "written_before": "any rule, grammar or policy code of this language layer was written",
+  "developer_access": "The developer did not read the case texts before freezing and does not tune rules on them. Only the structure and label vocabulary were validated.",
+  "rule": "The first rules-only run on this file is the reported one. Any later rule change made after seeing its results is logged in docs/log.md as a post-held-out change."
+}

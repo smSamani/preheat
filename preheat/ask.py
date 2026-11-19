@@ -1,70 +1,27 @@
 """Optional language layer: sentence -> one proposed setting -> confirm -> same calculation.
 
-The model only proposes `ceiling_c` (or asks / declines). The program echoes the proposal,
-waits for an explicit "yes", calls `compare` in exactly one place, and renders every
-number itself from the tool output.
+The rules in `ceiling.py` propose a maximum, and only from a value typed in the message. The
+optional Gemini router may only pick a read-only answer. The program echoes the proposal, waits
+for "yes", calls `compare` in exactly one place, and prints fixed templates filled from solver
+output. Nothing the model writes is ever printed.
 """
 import json
-import math
 import os
-import re
 import sys
-import urllib.request
 
-from . import sweep
+from . import assistant, fixture, gemini, intent, sweep
 
-FALLBACK = ("Please tell me the highest indoor temperature you would accept, "
-            "between 21.5 and 24 °C.")
 CANCELLED = "Cancelled. Nothing was calculated."
-LIVE_HELP = ('Live mode needs PREHEAT_LLM_API_KEY and PREHEAT_LLM_MODEL. '
-             'Run "python -m preheat ask --offline" to replay the recorded session.')
-NUMBER_GUARD = re.compile(r"€|%|kWh|EUR|cost|sav", re.I)
-
-TOOL = {
-    "name": "compare",
-    "description": ("Compare price-blind heating with cost-minimising pre-heating, for the "
-                    "current and the better-insulated house, at one maximum indoor "
-                    "temperature that applies all day."),
-    "input_schema": {
-        "type": "object",
-        "properties": {"ceiling_c": {
-            "type": "number", "minimum": 21.5, "maximum": 24.0,
-            "description": "Maximum indoor temperature allowed all day, in °C."}},
-        "required": ["ceiling_c"], "additionalProperties": False},
-}
-
-SYSTEM_PROMPT = (
-    "You translate one request about the maximum indoor temperature into a call to "
-    "compare(ceiling_c). The valid range is 21.5 to 24 degrees C and the setting applies "
-    "all day. If the value is unclear (for example 'a bit warmer'), ask one short "
-    "clarifying question and do not call the tool. If the request is for anything else "
-    "(night setbacks, a different floor, turning the heat pump off, prices, "
-    "recommendations), say briefly that only the maximum temperature can be changed, and "
-    "do not call the tool. Never state energy, cost or percentage figures. Never "
-    "recommend or rank options.")
+CANCELLED_FA = "لغو شد. چیزی محاسبه نشد."
+LIVE_HELP = ('Live mode needs PREHEAT_GEMINI_KEY (and optionally PREHEAT_GEMINI_MODEL). '
+             'Run "python -m preheat ask --offline" to replay the recorded sessions.')
+YES = ("y", "yes", "yeah", "yep", "بله", "آره", "اره")
+NO = ("n", "no", "cancel", "نه", "خیر", "لغو")
 
 
-def normalise(out):
-    """Reduce any model output to a tool_call(compare, ceiling_c) or a guarded text."""
-    fb = {"type": "text", "text": FALLBACK}
-    if not isinstance(out, dict):
-        return fb
-    if out.get("type") == "tool_call":
-        args = out.get("arguments")
-        if out.get("name") != "compare" or not isinstance(args, dict) \
-                or set(args) != {"ceiling_c"}:
-            return fb
-        v = args["ceiling_c"]
-        if isinstance(v, bool) or not isinstance(v, (int, float)) or not math.isfinite(v):
-            return fb
-        return {"type": "tool_call", "name": "compare", "arguments": {"ceiling_c": v}}
-    if out.get("type") == "text" and isinstance(out.get("text"), str):
-        t = out["text"].strip()
-        return fb if (not t or NUMBER_GUARD.search(t)) else {"type": "text", "text": t}
-    return fb
-
-
-def echo(v):
+def echo(v, persian=False):
+    if persian:
+        return f"سقف {v:.1f} درجه برای کل روز — درسته؟ (بله/نه)"
     return f"Maximum {v:.1f} °C, all day — correct? (yes/no)"
 
 
@@ -78,7 +35,9 @@ def render(result):
         node = result["envelopes"][env]
         for part in path.split("."):
             node = node[part]
-        if unit == "cases":
+        if node is None:
+            s = "n/a"
+        elif unit == "cases":
             s = str(int(node))
         elif unit == "%":
             s = f"{node:.1f}"
@@ -87,6 +46,8 @@ def render(result):
             if s == "-0.00":
                 s = "0.00"
         prov.append((s, f"envelopes.{env}.{path}", unit))
+        if node is None:
+            return s
         return {"%": f"{s}%", "kWh": f"{s} kWh", "€": f"€{s}", "cases": f"{s} what-if"}[unit]
 
     cc = f"{result['ceiling_c']:.1f}"
@@ -98,73 +59,94 @@ def render(result):
         if e["status"] != "ok":
             lines.append(f"  {name}: {e['status']}: {e.get('reason')}")
             continue
-        lines.append(f"  {name}: avoids {fmt(env, 'avoided_kwh', 'kWh')} of "
+        lines.append(f"  {name}: avoids {fmt(env, 'avoided_kwh', 'kWh')} of the one-hour rule's "
                      f"{fmt(env, 'baseline_evening_kwh', 'kWh')} evening heat-pump "
                      f"electricity ({fmt(env, 'avoided_pct', '%')}).")
         lines.append(f"    Day heating cost {fmt(env, 'optimised_cost_eur', '€')} instead of "
-                     f"{fmt(env, 'baseline_cost_eur', '€')}: "
+                     f"{fmt(env, 'baseline_cost_eur', '€')} with the one-hour rule: "
                      f"{fmt(env, 'saving_eur', '€')} saved that day.")
     parts = []
     for env in names:
         e = result["envelopes"][env]
         if e["status"] != "ok" or not e["case_range"].get("n_cases_ok"):
             continue
-        r = f"case_range."
+        r = "case_range."
+        rng = e["case_range"]
+        pct = (f"avoided {fmt(env, r + 'avoided_pct_min', '%')} to "
+               f"{fmt(env, r + 'avoided_pct_max', '%')}, "
+               if "avoided_pct_min" in rng else "")
         parts.append(
-            f"avoided {fmt(env, r + 'avoided_pct_min', '%')} to "
-            f"{fmt(env, r + 'avoided_pct_max', '%')}, saved "
+            f"{pct}saved "
             f"{fmt(env, r + 'saving_eur_min', '€')} to {fmt(env, r + 'saving_eur_max', '€')} "
             f"({env}, {fmt(env, r + 'n_cases_ok', 'cases')} cases)")
     if parts:
         lines.append("  Across the what-if cases: " + "; ".join(parts) + ".")
-    lines.append("These are two different measures and can rank the houses differently. "
-                 "The tool does not recommend a setting.")
+    lines.append("Both comparisons are against the one-hour rule. The two measures can rank "
+                 "the houses differently. The tool does not recommend a setting.")
     return "\n".join(lines), prov
 
 
 class Session:
-    """Confirm-then-call state machine. `compare_fn` is called only in the yes branch."""
+    """Confirm-then-call state machine. `compare_fn` is called only in the yes branch.
 
-    def __init__(self, model_fn, compare_fn=None):
-        self.model_fn = model_fn
+    `ask` is None (rules only) or a callable(message) -> ModelChoice | Failure. Only the latest
+    message is passed on. The pending proposal is the pair (value, case)."""
+
+    CASE = "nominal"
+
+    def __init__(self, ask=None, compare_fn=None, always_ask=False):
+        self.ask = ask
+        self.always_ask = always_ask      # evaluation only: log the model's choice for every message
         self.compare_fn = compare_fn or sweep.compare
         self.pending = None
-        self.history = []
         self.log = []
+        self.last_decision = None         # the intent.Decision of the latest message, if any
+        self.last_action = None           # ("confirm", value) or ("cancel", None) for yes / no
 
     def _say(self, text):
         self.log.append({"role": "program", "text": text})
         return text
 
+    def _reply(self, decision, persian):
+        item = decision.intent
+        if isinstance(item, intent.Compare):
+            results = _results()
+        else:
+            results = {"ceiling": fixture.REFERENCE_CEILING, "case": self.CASE, "envelopes": {}}
+        return assistant.render(item, results, persian)["text"]
+
     def send(self, text):
         """Handle one user message; return the printed lines."""
         self.log.append({"role": "user", "text": text})
+        self.last_decision = self.last_action = None
+        persian = bool(assistant.PERSIAN.search(text))
         if self.pending is not None:
-            v, answer = self.pending, text.strip().lower()
-            if answer in ("y", "yes"):
-                self.pending = None
+            (v, case), answer = self.pending, text.strip().lower()
+            self.pending = None              # any message ends the pending proposal
+            if answer in YES and case == self.CASE:
+                self.last_action = ("confirm", v)
                 result = self.compare_fn(v)
                 self.log.append({"role": "tool", "name": "compare",
                                  "arguments": {"ceiling_c": v}, "result": result})
-                self.history.append({"role": "assistant", "content": "(calculation shown)"})
                 return [self._say(render(result)[0])]
-            if answer in ("n", "no", "cancel"):
-                self.pending = None
-                self.history.append({"role": "assistant", "content": CANCELLED})
-                return [self._say(CANCELLED)]
-            self.pending = None          # anything else: a new request
-        self.history.append({"role": "user", "content": text})
-        out = normalise(self.model_fn(list(self.history)))
-        self.log.append({"role": "model", "output": out})
-        if out["type"] == "text":
-            self.history.append({"role": "assistant", "content": out["text"]})
-            return [self._say(out["text"])]
-        v = round(float(out["arguments"]["ceiling_c"]), 1)
-        if not sweep.LO <= v <= sweep.HI:
-            return [self._say(FALLBACK)]
-        self.pending = v
-        self.history.append({"role": "assistant", "content": echo(v)})
-        return [self._say(echo(v))]
+            if answer in NO:
+                self.last_action = ("cancel", None)
+                return [self._say(CANCELLED_FA if persian else CANCELLED)]
+        decision = self.last_decision = intent.decide(text, self.ask, always_ask=self.always_ask)
+        if decision.model is not None:
+            model = decision.model
+            self.log.append({"role": "model", "output": (
+                {"failure": model.code} if isinstance(model, intent.Failure) else model.model_dump())})
+        item = decision.intent
+        if isinstance(item, intent.ProposeCeiling):
+            self.pending = (item.value_c, self.CASE)
+            return [self._say(echo(item.value_c, persian))]
+        return [self._say(self._reply(decision, persian))]
+
+
+def _results():
+    from . import web
+    return web.scenario({"ceiling": fixture.REFERENCE_CEILING, "case": Session.CASE})
 
 
 def _close(a, b):
@@ -190,10 +172,13 @@ def replay(trace, compare_fn=None, out=print):
     for s in trace["sessions"]:
         models = iter([t["output"] for t in s["turns"] if t["role"] == "model"])
 
-        def model_fn(_messages, models=models):
-            return next(models, {"type": "text", "text": "(trace exhausted)"})
+        def ask_fn(_message, models=models):
+            out = next(models, {"failure": "unavailable"})
+            if "failure" in out:
+                return intent.Failure(out["failure"])
+            return intent.MODEL_CHOICE.validate_python(out)
 
-        sess = Session(model_fn, spy)
+        sess = Session(ask_fn if any(t["role"] == "model" for t in s["turns"]) else None, spy)
         out(f"--- {s['name']}")
         for t in s["turns"]:
             if t["role"] == "user":
@@ -218,83 +203,36 @@ def replay(trace, compare_fn=None, out=print):
     return True, f"Replay identical ({len(trace['sessions'])} sessions)."
 
 
-def call_model(messages, tools=None):
-    """The single provider adapter: an OpenAI-style chat-completions tool-calling endpoint."""
-    key, model = os.environ.get("PREHEAT_LLM_API_KEY"), os.environ.get("PREHEAT_LLM_MODEL")
-    tools = tools or [TOOL]
-    body = {"model": model, "temperature": 0,
-            "messages": [{"role": "system", "content": SYSTEM_PROMPT}] + messages,
-            "tools": [{"type": "function", "function": {
-                "name": t["name"], "description": t["description"],
-                "parameters": t["input_schema"]}} for t in tools]}
-    req = urllib.request.Request(
-        "https://api.openai.com/v1/chat/completions", data=json.dumps(body).encode(),
-        headers={"Content-Type": "application/json", "Authorization": f"Bearer {key}"})
-    with urllib.request.urlopen(req, timeout=30) as resp:
-        msg = json.load(resp)["choices"][0]["message"]
-    try:
-        if msg.get("tool_calls"):
-            fn = msg["tool_calls"][0]["function"]
-            return {"type": "tool_call", "name": fn["name"],
-                    "arguments": json.loads(fn["arguments"])}
-        return {"type": "text", "text": msg.get("content") or ""}
-    except (KeyError, ValueError, TypeError):
-        return {"type": "text", "text": FALLBACK}
+def live_settings():
+    """The Gemini key and model from the environment, or None when live mode is not configured."""
+    key = os.environ.get("PREHEAT_GEMINI_KEY", "").strip()
+    if not key:
+        return None
+    return {"key": key, "model": os.environ.get("PREHEAT_GEMINI_MODEL", "").strip()
+            or gemini.DEFAULT_MODEL}
 
 
-def run_eval(path):
-    items = json.load(open(path, encoding="utf-8"))
-    counts = {}
-    failures, unconfirmed = [], 0
-    for it in items:
-        calls = []
-        sess = Session(call_model, lambda v: calls.append(v) or sweep.compare(v))
-        sess.send(it["text"])
-        out = next((t["output"] for t in reversed(sess.log) if t["role"] == "model"), None)
-        exp = it["expected"]
-        if exp["action"] == "cancel":
-            sess.send("no")
-            ok = not calls
-        elif exp["action"] == "propose":
-            ok = out["type"] == "tool_call" and out["arguments"]["ceiling_c"] == exp["ceiling_c"]
-        else:
-            ok = out["type"] == "text"
-        if exp["action"] != "cancel" and calls:
-            unconfirmed += 1
-        c = counts.setdefault(exp["action"], {"n": 0, "correct": 0})
-        c["n"] += 1
-        c["correct"] += ok
-        if not ok:
-            failures.append({"id": it["id"], "got": out})
-    summary = {"model": os.environ["PREHEAT_LLM_MODEL"],
-               "date": __import__("datetime").date.today().isoformat(), "n": len(items),
-               "correct": sum(c["correct"] for c in counts.values()), "by_label": counts,
-               "failures": failures, "compare_calls_without_confirmation": unconfirmed}
-    os.makedirs("evals", exist_ok=True)
-    with open("evals/live_eval.json", "w", encoding="utf-8") as f:
-        json.dump(summary, f, indent=2, ensure_ascii=False)
-        f.write("\n")
-    print(json.dumps(summary, indent=2, ensure_ascii=False))
-    return 0
-
-
-def _trace_path():
-    return os.path.join(os.path.dirname(__file__), "traces", "demo.json")
+def _trace_paths():
+    folder = os.path.join(os.path.dirname(__file__), "traces")
+    return [os.path.join(folder, name) for name in ("demo.json", "revision.json")]
 
 
 def cli(args):
     if args.offline:
-        with open(args.trace or _trace_path(), encoding="utf-8") as f:
-            trace = json.load(f)
-        ok, msg = replay(trace)
-        print(msg)
-        return 0 if ok else 1
-    if not (os.environ.get("PREHEAT_LLM_API_KEY") and os.environ.get("PREHEAT_LLM_MODEL")):
+        status = 0
+        for path in ([args.trace] if args.trace else _trace_paths()):
+            with open(path, encoding="utf-8") as f:
+                trace = json.load(f)
+            ok, msg = replay(trace)
+            print(msg)
+            status = status or (0 if ok else 1)
+        return status
+    live = live_settings()
+    if live is None:
         print(LIVE_HELP)
         return 2
-    if args.eval:
-        return run_eval(args.eval)
-    sess = Session(call_model)
+    active = gemini.settings(fixture.REFERENCE_CEILING, Session.CASE)
+    sess = Session(lambda message: gemini.ask(message, active, live["key"], live["model"]))
     print("Tell me the highest indoor temperature you would accept (quit to end).")
     while True:
         try:
@@ -306,8 +244,7 @@ def cli(args):
         for line in sess.send(text):
             print(line)
     if args.record:
-        trace = {"format": "preheat-trace/1", "source": "recorded",
-                 "model": os.environ["PREHEAT_LLM_MODEL"],
+        trace = {"format": "preheat-trace/1", "source": "recorded", "model": live["model"],
                  "recorded_on": __import__("datetime").date.today().isoformat(),
                  "results_format": sweep.FORMAT,
                  "sessions": [{"name": "recorded session", "turns": sess.log}]}

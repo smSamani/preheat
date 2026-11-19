@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#eef2fb">
+  <title>Preheat Studio</title>
+  <link rel="stylesheet" href="/style.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <div class="aurora" aria-hidden="true"><i></i><i></i><i></i></div>
+  <div id="dashboard">
+    <header class="topbar">
+      <a class="brand" href="/" aria-label="Preheat Studio home">
+        <span class="brand-mark" aria-hidden="true">≋</span> Preheat <span class="brand-light">Studio</span>
+      </a>
+      <nav aria-label="Workspace">
+        <button type="button" id="about-open" class="quiet">Model notes</button>
+        <button type="button" id="settings-open">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" aria-hidden="true"><path d="M10 3h4l.5 2.5 2.1 1.2 2.4-.8 2 3.5-1.9 1.7v2.4l1.9 1.7-2 3.5-2.4-.8-2.1 1.2-.5 2.5h-4l-.5-2.5-2.1-1.2-2.4.8-2-3.5 1.9-1.7v-2.4L3 9.4l2-3.5 2.4.8 2.1-1.2z"/><circle cx="12" cy="12" r="3"/></svg>
+          Settings
+        </button>
+        <button type="button" id="chat-toggle" class="primary" aria-controls="assistant-panel" aria-expanded="true">
+          <span class="spark" aria-hidden="true">✦</span> Copilot
+        </button>
+      </nav>
+    </header>
+
+    <main class="analysis">
+      <header class="masthead">
+        <div>
+          <p class="eyebrow">Heat-pump preheating</p>
+          <h1>Heating overview</h1>
+          <p class="lede">See how warming a home earlier changes its evening electricity use.</p>
+        </div>
+        <div class="masthead-actions">
+          <span class="tag">Simulated winter day</span>
+          <button type="button" class="quiet reset" id="reset">Reset to defaults</button>
+        </div>
+      </header>
+
+      <section class="controls" aria-label="Scenario controls">
+        <div class="panel control scenario-field">
+          <label for="weather">Scenario</label>
+          <div class="select-wrap"><select id="weather"><option value="nominal">Typical winter day</option></select><span aria-hidden="true">⌄</span></div>
+          <p class="help">Weather case for the simulated day.</p>
+        </div>
+        <div class="panel control ceiling-field">
+          <label for="ceiling">Max indoor temperature</label>
+          <div class="range-control">
+            <input id="ceiling" type="range" min="21.5" max="24" step="0.1" value="22.5" list="ceiling-ticks" aria-label="Max indoor temperature">
+            <datalist id="ceiling-ticks"><option value="21.5"><option value="22"><option value="22.5"><option value="23"><option value="23.5"><option value="24"></datalist>
+            <output id="ceiling-value" for="ceiling">22.5 °C</output>
+          </div>
+          <div class="range-labels" aria-hidden="true"><span>21.5 °C</span><span>24.0 °C</span></div>
+        </div>
+        <div class="panel control house-field">
+          <span class="field-label" id="insulation-label">Insulation</span>
+          <div class="segmented" role="radiogroup" aria-labelledby="insulation-label">
+            <button type="button" role="radio" data-envelope="current" aria-checked="true">Current</button>
+            <button type="button" role="radio" data-envelope="insulated" aria-checked="false" tabindex="-1">Better insulated</button>
+          </div>
+          <p class="help">Choose which house the charts and summary show.</p>
+        </div>
+      </section>
+
+      <section class="summary" aria-label="Selected scenario summary">
+        <p id="insight" class="insight" role="status">Calculating scenario…</p>
+        <div id="kpis" class="kpi-grid"></div>
+      </section>
+
+      <section class="panel schedule" aria-labelledby="schedule-title">
+        <header class="section-heading">
+          <div class="heading-stack">
+            <h2 id="schedule-title">24-hour schedule</h2>
+            <div class="legend" aria-hidden="true">
+              <span><i class="l-base"></i>Baseline</span>
+              <span><i class="l-pre"></i>Preheated</span>
+              <span><i class="l-peak"></i>Peak tariff</span>
+            </div>
+          </div>
+          <div class="tariff"><span>Standard <b id="normal-price">€0.22/kWh</b></span><span class="peak-rate">Peak <b id="peak-price">€0.38/kWh</b></span></div>
+        </header>
+        <p id="chart-error" role="status" hidden></p>
+        <div id="charts" tabindex="0" role="group" aria-label="Hourly power and temperature charts. Use left and right arrows to inspect an hour." aria-describedby="chart-help">
+          <div class="plot">
+            <div class="chart-heading"><h3>Heat-pump power <span>kW</span></h3><span id="preheat-note"></span></div>
+            <canvas id="power-chart" aria-hidden="true"></canvas>
+          </div>
+          <div class="plot">
+            <div class="chart-heading"><h3>Indoor temperature <span>°C</span></h3></div>
+            <canvas id="temperature-chart" aria-hidden="true"></canvas>
+          </div>
+          <div id="chart-tooltip" class="chart-tooltip" role="status" hidden></div>
+        </div>
+        <div class="chart-footer">
+          <details class="hourly"><summary>View hourly data</summary>
+            <div class="table-scroll"><table><thead><tr><th scope="col">Hour</th><th scope="col">Baseline kW</th><th scope="col">Preheated kW</th><th scope="col">Baseline °C</th><th scope="col">Preheated °C</th></tr></thead><tbody id="hour-data"></tbody></table></div>
+          </details>
+          <span id="chart-help">Hover, tap or use ← → to inspect</span>
+        </div>
+      </section>
+
+      <section class="panel comparison" aria-labelledby="comparison-title">
+        <div class="section-heading"><h2 id="comparison-title">Insulation comparison</h2><span id="result-status" role="status"></span></div>
+        <div id="metrics" class="metric-grid" aria-busy="true"></div>
+      </section>
+    </main>
+  </div>
+  <div id="drawer-backdrop" hidden></div>
+  <aside id="assistant-panel" class="assistant" aria-labelledby="assistant-title">
+    <header class="assistant-header">
+      <svg class="mascot" viewBox="0 0 48 48" aria-hidden="true" focusable="false">
+        <defs>
+          <linearGradient id="mascot-fill" x1="8" y1="4" x2="42" y2="44" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#2a63ff"/><stop offset=".55" stop-color="#3f93ff"/><stop offset="1" stop-color="#8fd0ff"/></linearGradient>
+          <radialGradient id="mascot-sheen" cx="30%" cy="22%" r="70%"><stop offset="0" stop-color="#fff" stop-opacity=".38"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
+        </defs>
+        <path fill="url(#mascot-fill)" d="M24 3.5C36.5 3.5 44 10.5 44 21.5S36.5 39.5 25 39.5c-2.5 0-4.5-.2-6.5-.7L9 44l2.5-8.8C7 32 4 27.5 4 21.5 4 10.5 11.5 3.5 24 3.5Z"/>
+        <path fill="url(#mascot-sheen)" d="M24 3.5C36.5 3.5 44 10.5 44 21.5S36.5 39.5 25 39.5c-2.5 0-4.5-.2-6.5-.7L9 44l2.5-8.8C7 32 4 27.5 4 21.5 4 10.5 11.5 3.5 24 3.5Z"/>
+        <rect class="mascot-eye" x="14.6" y="13.5" width="6" height="13" rx="3" fill="#fff"/>
+        <rect class="mascot-eye" x="27.4" y="13.5" width="6" height="13" rx="3" fill="#fff"/>
+      </svg>
+      <div><h2 id="assistant-title">Preheat Copilot</h2><p id="assistant-state" data-mode="rules">Built-in rules</p></div>
+      <button type="button" class="icon-button" id="clear-chat" title="New conversation" aria-label="New conversation">↺</button>
+      <button type="button" class="icon-button" id="close-chat" aria-label="Close Copilot">×</button>
+    </header>
+    <p class="context-bar" id="chat-context"></p>
+    <div id="chat-intro" class="chat-intro">
+      <h3>Explore this scenario</h3>
+      <p class="chat-hello">Ask how preheating and insulation change this day, or let me try a new ceiling for you.</p>
+      <div class="mode-note" id="mode-note">
+        <p>Answers come from built-in rules and the solver. No AI model is connected yet.</p>
+        <button type="button" id="connect-gemini">Connect Gemini</button>
+      </div>
+      <div class="suggestions" aria-label="Suggested questions">
+        <button type="button" data-prompt="What's the typical indoor temperature?">Typical indoor temperature</button>
+        <button type="button" data-prompt="Compare the two insulation levels.">Compare houses</button>
+        <button type="button" data-prompt="How much peak electricity do we avoid?">Peak electricity</button>
+        <button type="button" data-prompt="Set the ceiling to 23 °C.">Try a 23 °C ceiling</button>
+      </div>
+    </div>
+    <div id="conversation" class="conversation" role="log" aria-label="Conversation" aria-live="polite"></div>
+    <div id="proposal" class="proposal" hidden>
+      <p>Proposed ceiling <strong id="proposal-from"></strong> → <strong id="proposal-value"></strong></p>
+      <div><button type="button" id="cancel">Dismiss</button><button type="button" class="primary" id="apply">Apply to scenario</button></div>
+    </div>
+    <form id="chat-form">
+      <label class="sr-only" for="message">Message Preheat Copilot</label>
+      <textarea id="message" rows="2" maxlength="800" placeholder="Ask about this scenario…" dir="auto"></textarea>
+      <button type="submit" id="send-message" class="primary" aria-label="Send message">↑</button>
+    </form>
+  </aside>
+
+  <dialog id="settings" class="dialog" aria-labelledby="settings-title">
+    <div class="dialog-header"><h2 id="settings-title">Gemini settings</h2><button type="button" class="icon-button" data-close aria-label="Close settings">×</button></div>
+    <form id="settings-form">
+      <label for="api-key">API key</label>
+      <div class="key-row"><input id="api-key" type="password" autocomplete="off" spellcheck="false" placeholder="Paste a key from Google AI Studio" maxlength="256" pattern="[A-Za-z0-9_.\-]{12,256}"><button type="button" id="show-key" class="button" aria-pressed="false">Show</button></div>
+      <label for="model-id">Model ID</label>
+      <input id="model-id" value="gemini-3.5-flash-lite" required maxlength="87" pattern="gemini-[A-Za-z0-9_.\-]+" spellcheck="false">
+      <p class="hint">The key stays in this tab’s memory. When you send a message, Gemini receives the conversation and a summary of your active simulation.</p>
+      <div class="dialog-actions"><button class="quiet" id="forget-key" type="button">Remove key</button><button class="button primary" type="submit">Save settings</button></div>
+    </form>
+  </dialog>
+  <dialog id="about" class="dialog" aria-labelledby="about-title">
+    <div class="dialog-header"><h2 id="about-title">Model notes</h2><button type="button" class="icon-button" data-close aria-label="Close model notes">×</button></div>
+    <p>Preheat simulates a heat-pump home over one synthetic day. The baseline meets the temperature requirements regardless of price. The optimised schedule minimises the electricity bill while respecting the same temperature limits.</p>
+    <p>Better insulation lowers the heat-loss coefficient from 0.20 to 0.13 kW/K. Both cases use the same heat pump. Evening usage covers 17:00–22:00. Daily cost includes all 24 hours.</p>
+  </dialog>
+</body>
+</html>

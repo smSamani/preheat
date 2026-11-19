@@ -5,3 +5,6 @@ __pycache__/
 .DS_Store
 .rehearsal/
 evals/live_*.raw.json
+/generated_images/
+evals/live/*.raw.json
+.env

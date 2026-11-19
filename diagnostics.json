@@ -1,0 +1,663 @@
+{
+  "case": "nominal",
+  "format": "preheat-diagnostics/1",
+  "matched_foresight": {
+    "description": "Price-blind LP with the same whole-day foresight and bounds as the cost LP, minimising the day's electricity (kWh), then billed at the same tariff. saving_vs_energy_lp_eur isolates the gain from responding to the tariff.",
+    "rows": [
+      {
+        "ceiling_c": 21.5,
+        "cost_lp": {
+          "T_end_c": 20.0,
+          "cost_eur": 6.272183,
+          "elec_kwh": 25.639215,
+          "evening_kwh": 3.947222
+        },
+        "cost_lp_status": "ok",
+        "energy_lp": {
+          "T_end_c": 20.0,
+          "cost_eur": 6.272183,
+          "elec_kwh": 25.639215,
+          "evening_kwh": 3.947222
+        },
+        "energy_lp_status": "ok",
+        "envelope": "current",
+        "evening_avoided_vs_energy_lp_kwh": 0.0,
+        "rule": {
+          "T_end_c": 20.0,
+          "cost_eur": 6.608653,
+          "elec_kwh": 25.675482,
+          "evening_kwh": 6.000292
+        },
+        "rule_status": "ok",
+        "saving_vs_energy_lp_eur": 0.0,
+        "saving_vs_rule_eur": 0.33647
+      },
+      {
+        "ceiling_c": 21.5,
+        "cost_lp": {
+          "T_end_c": 20.0,
+          "cost_eur": 3.823536,
+          "elec_kwh": 15.870982,
+          "evening_kwh": 2.0745
+        },
+        "cost_lp_status": "ok",
+        "energy_lp": {
+          "T_end_c": 20.0,
+          "cost_eur": 3.823536,
+          "elec_kwh": 15.870982,
+          "evening_kwh": 2.0745
+        },
+        "energy_lp_status": "ok",
+        "envelope": "insulated",
+        "evening_avoided_vs_energy_lp_kwh": 0.0,
+        "rule": {
+          "T_end_c": 20.0,
+          "cost_eur": 4.170749,
+          "elec_kwh": 15.942866,
+          "evening_kwh": 4.145738
+        },
+        "rule_status": "ok",
+        "saving_vs_energy_lp_eur": 0.0,
+        "saving_vs_rule_eur": 0.347213
+      },
+      {
+        "ceiling_c": 22.0,
+        "cost_lp": {
+          "T_end_c": 20.0,
+          "cost_eur": 6.163933,
+          "elec_kwh": 25.637408,
+          "evening_kwh": 3.273147
+        },
+        "cost_lp_status": "ok",
+        "energy_lp": {
+          "T_end_c": 20.0,
+          "cost_eur": 6.194576,
+          "elec_kwh": 25.63085,
+          "evening_kwh": 3.473681
+        },
+        "energy_lp_status": "ok",
+        "envelope": "current",
+        "evening_avoided_vs_energy_lp_kwh": 0.200534,
+        "rule": {
+          "T_end_c": 20.0,
+          "cost_eur": 6.608653,
+          "elec_kwh": 25.675482,
+          "evening_kwh": 6.000292
+        },
+        "rule_status": "ok",
+        "saving_vs_energy_lp_eur": 0.030643,
+        "saving_vs_rule_eur": 0.44472
+      },
+      {
+        "ceiling_c": 22.0,
+        "cost_lp": {
+          "T_end_c": 20.0,
+          "cost_eur": 3.716178,
+          "elec_kwh": 15.869072,
+          "evening_kwh": 1.406139
+        },
+        "cost_lp_status": "ok",
+        "energy_lp": {
+          "T_end_c": 20.0,
+          "cost_eur": 3.716178,
+          "elec_kwh": 15.869072,
+          "evening_kwh": 1.406139
+        },
+        "energy_lp_status": "ok",
+        "envelope": "insulated",
+        "evening_avoided_vs_energy_lp_kwh": 0.0,
+        "rule": {
+          "T_end_c": 20.0,
+          "cost_eur": 4.170749,
+          "elec_kwh": 15.942866,
+          "evening_kwh": 4.145738
+        },
+        "rule_status": "ok",
+        "saving_vs_energy_lp_eur": 0.0,
+        "saving_vs_rule_eur": 0.454571
+      },
+      {
+        "ceiling_c": 22.5,
+        "cost_lp": {
+          "T_end_c": 20.0,
+          "cost_eur": 6.066871,
+          "elec_kwh": 25.669657,
+          "evening_kwh": 2.622167
+        },
+        "cost_lp_status": "ok",
+        "energy_lp": {
+          "T_end_c": 20.0,
+          "cost_eur": 6.194576,
+          "elec_kwh": 25.63085,
+          "evening_kwh": 3.473681
+        },
+        "energy_lp_status": "ok",
+        "envelope": "current",
+        "evening_avoided_vs_energy_lp_kwh": 0.851514,
+        "rule": {
+          "T_end_c": 20.0,
+          "cost_eur": 6.608653,
+          "elec_kwh": 25.675482,
+          "evening_kwh": 6.000292
+        },
+        "rule_status": "ok",
+        "saving_vs_energy_lp_eur": 0.127705,
+        "saving_vs_rule_eur": 0.541782
+      },
+      {
+        "ceiling_c": 22.5,
+        "cost_lp": {
+          "T_end_c": 20.0,
+          "cost_eur": 3.616663,
+          "elec_kwh": 15.887802,
+          "evening_kwh": 0.758418
+        },
+        "cost_lp_status": "ok",
+        "energy_lp": {
+          "T_end_c": 20.0,
+          "cost_eur": 3.712374,
+          "elec_kwh": 15.869005,
+          "evening_kwh": 1.382453
+        },
+        "energy_lp_status": "ok",
+        "envelope": "insulated",
+        "evening_avoided_vs_energy_lp_kwh": 0.624035,
+        "rule": {
+          "T_end_c": 20.0,
+          "cost_eur": 4.170749,
+          "elec_kwh": 15.942866,
+          "evening_kwh": 4.145738
+        },
+        "rule_status": "ok",
+        "saving_vs_energy_lp_eur": 0.09571,
+        "saving_vs_rule_eur": 0.554085
+      },
+      {
+        "ceiling_c": 23.0,
+        "cost_lp": {
+          "T_end_c": 20.0,
+          "cost_eur": 5.981367,
+          "elec_kwh": 25.742219,
+          "evening_kwh": 1.987993
+        },
+        "cost_lp_status": "ok",
+        "energy_lp": {
+          "T_end_c": 20.0,
+          "cost_eur": 6.194576,
+          "elec_kwh": 25.63085,
+          "evening_kwh": 3.473681
+        },
+        "energy_lp_status": "ok",
+        "envelope": "current",
+        "evening_avoided_vs_energy_lp_kwh": 1.485688,
+        "rule": {
+          "T_end_c": 20.0,
+          "cost_eur": 6.608653,
+          "elec_kwh": 25.675482,
+          "evening_kwh": 6.000292
+        },
+        "rule_status": "ok",
+        "saving_vs_energy_lp_eur": 0.213209,
+        "saving_vs_rule_eur": 0.627286
+      },
+      {
+        "ceiling_c": 23.0,
+        "cost_lp": {
+          "T_end_c": 20.0,
+          "cost_eur": 3.528332,
+          "elec_kwh": 15.943333,
+          "evening_kwh": 0.129995
+        },
+        "cost_lp_status": "ok",
+        "energy_lp": {
+          "T_end_c": 20.0,
+          "cost_eur": 3.712374,
+          "elec_kwh": 15.869005,
+          "evening_kwh": 1.382453
+        },
+        "energy_lp_status": "ok",
+        "envelope": "insulated",
+        "evening_avoided_vs_energy_lp_kwh": 1.252458,
+        "rule": {
+          "T_end_c": 20.0,
+          "cost_eur": 4.170749,
+          "elec_kwh": 15.942866,
+          "evening_kwh": 4.145738
+        },
+        "rule_status": "ok",
+        "saving_vs_energy_lp_eur": 0.184041,
+        "saving_vs_rule_eur": 0.642416
+      },
+      {
+        "ceiling_c": 23.5,
+        "cost_lp": {
+          "T_end_c": 20.0,
+          "cost_eur": 5.901541,
+          "elec_kwh": 25.829723,
+          "evening_kwh": 1.368762
+        },
+        "cost_lp_status": "ok",
+        "energy_lp": {
+          "T_end_c": 20.0,
+          "cost_eur": 6.194576,
+          "elec_kwh": 25.63085,
+          "evening_kwh": 3.473681
+        },
+        "energy_lp_status": "ok",
+        "envelope": "current",
+        "evening_avoided_vs_energy_lp_kwh": 2.104919,
+        "rule": {
+          "T_end_c": 20.0,
+          "cost_eur": 6.608653,
+          "elec_kwh": 25.675482,
+          "evening_kwh": 6.000292
+        },
+        "rule_status": "ok",
+        "saving_vs_energy_lp_eur": 0.293035,
+        "saving_vs_rule_eur": 0.707112
+      },
+      {
+        "ceiling_c": 23.5,
+        "cost_lp": {
+          "T_end_c": 20.0,
+          "cost_eur": 3.510373,
+          "elec_kwh": 15.956242,
+          "evening_kwh": 0.0
+        },
+        "cost_lp_status": "ok",
+        "energy_lp": {
+          "T_end_c": 20.0,
+          "cost_eur": 3.712374,
+          "elec_kwh": 15.869005,
+          "evening_kwh": 1.382453
+        },
+        "energy_lp_status": "ok",
+        "envelope": "insulated",
+        "evening_avoided_vs_energy_lp_kwh": 1.382453,
+        "rule": {
+          "T_end_c": 20.0,
+          "cost_eur": 4.170749,
+          "elec_kwh": 15.942866,
+          "evening_kwh": 4.145738
+        },
+        "rule_status": "ok",
+        "saving_vs_energy_lp_eur": 0.202,
+        "saving_vs_rule_eur": 0.660375
+      },
+      {
+        "ceiling_c": 24.0,
+        "cost_lp": {
+          "T_end_c": 20.0,
+          "cost_eur": 5.829283,
+          "elec_kwh": 25.937143,
+          "evening_kwh": 0.769446
+        },
+        "cost_lp_status": "ok",
+        "energy_lp": {
+          "T_end_c": 20.0,
+          "cost_eur": 6.194576,
+          "elec_kwh": 25.63085,
+          "evening_kwh": 3.473681
+        },
+        "energy_lp_status": "ok",
+        "envelope": "current",
+        "evening_avoided_vs_energy_lp_kwh": 2.704235,
+        "rule": {
+          "T_end_c": 20.0,
+          "cost_eur": 6.608653,
+          "elec_kwh": 25.675482,
+          "evening_kwh": 6.000292
+        },
+        "rule_status": "ok",
+        "saving_vs_energy_lp_eur": 0.365293,
+        "saving_vs_rule_eur": 0.77937
+      },
+      {
+        "ceiling_c": 24.0,
+        "cost_lp": {
+          "T_end_c": 20.0,
+          "cost_eur": 3.510373,
+          "elec_kwh": 15.956242,
+          "evening_kwh": 0.0
+        },
+        "cost_lp_status": "ok",
+        "energy_lp": {
+          "T_end_c": 20.0,
+          "cost_eur": 3.712374,
+          "elec_kwh": 15.869005,
+          "evening_kwh": 1.382453
+        },
+        "energy_lp_status": "ok",
+        "envelope": "insulated",
+        "evening_avoided_vs_energy_lp_kwh": 1.382453,
+        "rule": {
+          "T_end_c": 20.0,
+          "cost_eur": 4.170749,
+          "elec_kwh": 15.942866,
+          "evening_kwh": 4.145738
+        },
+        "rule_status": "ok",
+        "saving_vs_energy_lp_eur": 0.202,
+        "saving_vs_rule_eur": 0.660375
+      }
+    ]
+  },
+  "note": "Diagnostics only. They are not part of the 84 sweep records or the sensitivity bands in results.json.",
+  "reduced_power": {
+    "ceiling_c": 22.5,
+    "description": "Heat pump limited to 2 kW electrical at 22.5 °C.",
+    "p_max_kw": 2.0,
+    "rows": [
+      {
+        "cost_lp": {
+          "T_end_c": 20.0,
+          "cost_eur": 6.103783,
+          "elec_kwh": 25.83744,
+          "evening_kwh": 2.622167
+        },
+        "cost_lp_status": "ok",
+        "envelope": "current",
+        "pair_status": "baseline_failed",
+        "rule_reason": "the one-hour rule needs 2.53 kW at hour 17, above the 2 kW limit",
+        "rule_status": "infeasible"
+      },
+      {
+        "cost_lp": {
+          "T_end_c": 20.0,
+          "cost_eur": 3.63352,
+          "elec_kwh": 15.964425,
+          "evening_kwh": 0.758418
+        },
+        "cost_lp_status": "ok",
+        "envelope": "insulated",
+        "pair_status": "baseline_failed",
+        "rule_reason": "the one-hour rule needs 2.07 kW at hour 17, above the 2 kW limit",
+        "rule_status": "infeasible"
+      }
+    ]
+  },
+  "strict_evening_comfort": {
+    "description": "21 °C required at every hourly boundary from 17:00 to 22:00 instead of 18:00 to 21:00 only; one-hour rule vs cost LP.",
+    "floor_states": [
+      17,
+      18,
+      19,
+      20,
+      21,
+      22
+    ],
+    "rows": [
+      {
+        "avoided_kwh": 0.684357,
+        "avoided_pct": 11.820707,
+        "baseline": {
+          "T_end_c": 20.0,
+          "cost_eur": 6.583912,
+          "elec_kwh": 25.716345,
+          "evening_kwh": 5.789474
+        },
+        "ceiling_c": 21.5,
+        "envelope": "current",
+        "optimised": {
+          "T_end_c": 20.0,
+          "cost_eur": 6.471755,
+          "elec_kwh": 25.704256,
+          "evening_kwh": 5.105117
+        },
+        "saving_eur": 0.112157,
+        "status": "ok"
+      },
+      {
+        "avoided_kwh": 0.690413,
+        "avoided_pct": 19.976406,
+        "baseline": {
+          "T_end_c": 20.0,
+          "cost_eur": 4.059164,
+          "elec_kwh": 15.937191,
+          "evening_kwh": 3.45614
+        },
+        "ceiling_c": 21.5,
+        "envelope": "insulated",
+        "optimised": {
+          "T_end_c": 20.0,
+          "cost_eur": 3.943427,
+          "elec_kwh": 15.91323,
+          "evening_kwh": 2.765728
+        },
+        "saving_eur": 0.115738,
+        "status": "ok"
+      },
+      {
+        "avoided_kwh": 1.358432,
+        "avoided_pct": 23.46382,
+        "baseline": {
+          "T_end_c": 20.0,
+          "cost_eur": 6.583912,
+          "elec_kwh": 25.716345,
+          "evening_kwh": 5.789474
+        },
+        "ceiling_c": 22.0,
+        "envelope": "current",
+        "optimised": {
+          "T_end_c": 20.0,
+          "cost_eur": 6.363506,
+          "elec_kwh": 25.702449,
+          "evening_kwh": 4.431042
+        },
+        "saving_eur": 0.220406,
+        "status": "ok"
+      },
+      {
+        "avoided_kwh": 1.358774,
+        "avoided_pct": 39.314771,
+        "baseline": {
+          "T_end_c": 20.0,
+          "cost_eur": 4.059164,
+          "elec_kwh": 15.937191,
+          "evening_kwh": 3.45614
+        },
+        "ceiling_c": 22.0,
+        "envelope": "insulated",
+        "optimised": {
+          "T_end_c": 20.0,
+          "cost_eur": 3.836069,
+          "elec_kwh": 15.91132,
+          "evening_kwh": 2.097367
+        },
+        "saving_eur": 0.223095,
+        "status": "ok"
+      },
+      {
+        "avoided_kwh": 2.009412,
+        "avoided_pct": 34.708024,
+        "baseline": {
+          "T_end_c": 20.0,
+          "cost_eur": 6.583912,
+          "elec_kwh": 25.716345,
+          "evening_kwh": 5.789474
+        },
+        "ceiling_c": 22.5,
+        "envelope": "current",
+        "optimised": {
+          "T_end_c": 20.0,
+          "cost_eur": 6.266444,
+          "elec_kwh": 25.734698,
+          "evening_kwh": 3.780062
+        },
+        "saving_eur": 0.317468,
+        "status": "ok"
+      },
+      {
+        "avoided_kwh": 2.006494,
+        "avoided_pct": 58.055923,
+        "baseline": {
+          "T_end_c": 20.0,
+          "cost_eur": 4.059164,
+          "elec_kwh": 15.937191,
+          "evening_kwh": 3.45614
+        },
+        "ceiling_c": 22.5,
+        "envelope": "insulated",
+        "optimised": {
+          "T_end_c": 20.0,
+          "cost_eur": 3.736554,
+          "elec_kwh": 15.93005,
+          "evening_kwh": 1.449646
+        },
+        "saving_eur": 0.32261,
+        "status": "ok"
+      },
+      {
+        "avoided_kwh": 2.643586,
+        "avoided_pct": 45.661935,
+        "baseline": {
+          "T_end_c": 20.0,
+          "cost_eur": 6.583912,
+          "elec_kwh": 25.716345,
+          "evening_kwh": 5.789474
+        },
+        "ceiling_c": 23.0,
+        "envelope": "current",
+        "optimised": {
+          "T_end_c": 20.0,
+          "cost_eur": 6.180939,
+          "elec_kwh": 25.80726,
+          "evening_kwh": 3.145888
+        },
+        "saving_eur": 0.402972,
+        "status": "ok"
+      },
+      {
+        "avoided_kwh": 2.634918,
+        "avoided_pct": 76.238735,
+        "baseline": {
+          "T_end_c": 20.0,
+          "cost_eur": 4.059164,
+          "elec_kwh": 15.937191,
+          "evening_kwh": 3.45614
+        },
+        "ceiling_c": 23.0,
+        "envelope": "insulated",
+        "optimised": {
+          "T_end_c": 20.0,
+          "cost_eur": 3.648223,
+          "elec_kwh": 15.985581,
+          "evening_kwh": 0.821223
+        },
+        "saving_eur": 0.410941,
+        "status": "ok"
+      },
+      {
+        "avoided_kwh": 3.262817,
+        "avoided_pct": 56.357753,
+        "baseline": {
+          "T_end_c": 20.0,
+          "cost_eur": 6.583912,
+          "elec_kwh": 25.716345,
+          "evening_kwh": 5.789474
+        },
+        "ceiling_c": 23.5,
+        "envelope": "current",
+        "optimised": {
+          "T_end_c": 20.0,
+          "cost_eur": 6.101113,
+          "elec_kwh": 25.894764,
+          "evening_kwh": 2.526656
+        },
+        "saving_eur": 0.482799,
+        "status": "ok"
+      },
+      {
+        "avoided_kwh": 3.245323,
+        "avoided_pct": 93.900203,
+        "baseline": {
+          "T_end_c": 20.0,
+          "cost_eur": 4.059164,
+          "elec_kwh": 15.937191,
+          "evening_kwh": 3.45614
+        },
+        "ceiling_c": 23.5,
+        "envelope": "insulated",
+        "optimised": {
+          "T_end_c": 20.0,
+          "cost_eur": 3.567732,
+          "elec_kwh": 16.063643,
+          "evening_kwh": 0.210818
+        },
+        "saving_eur": 0.491432,
+        "status": "ok"
+      },
+      {
+        "avoided_kwh": 3.862133,
+        "avoided_pct": 66.709564,
+        "baseline": {
+          "T_end_c": 20.0,
+          "cost_eur": 6.583912,
+          "elec_kwh": 25.716345,
+          "evening_kwh": 5.789474
+        },
+        "ceiling_c": 24.0,
+        "envelope": "current",
+        "optimised": {
+          "T_end_c": 20.0,
+          "cost_eur": 6.028855,
+          "elec_kwh": 26.002185,
+          "evening_kwh": 1.927341
+        },
+        "saving_eur": 0.555057,
+        "status": "ok"
+      },
+      {
+        "avoided_kwh": 3.45614,
+        "avoided_pct": 100.0,
+        "baseline": {
+          "T_end_c": 20.0,
+          "cost_eur": 4.059164,
+          "elec_kwh": 15.937191,
+          "evening_kwh": 3.45614
+        },
+        "ceiling_c": 24.0,
+        "envelope": "insulated",
+        "optimised": {
+          "T_end_c": 20.0,
+          "cost_eur": 3.540291,
+          "elec_kwh": 16.092233,
+          "evening_kwh": 0.0
+        },
+        "saving_eur": 0.518873,
+        "status": "ok"
+      }
+    ]
+  },
+  "synthetic": true,
+  "tighter_floor": {
+    "case": "nominal",
+    "ceiling_c": 22.5,
+    "description": "Nominal day at 22.5 °C. Daily cost of the cost LP when the 21:00 minimum is 0.1 K warmer, and the LP's dual value for that minimum (EUR per K) checked against a re-solve 0.01 K higher. Local to this one day and setting.",
+    "raise_k": 0.1,
+    "rows": [
+      {
+        "active": true,
+        "agree": true,
+        "cost_base": 6.066871,
+        "cost_plus_0_1": 6.092906,
+        "dual_eur_per_k": 0.260346,
+        "envelope": "current",
+        "fd_eur_per_k": 0.260346,
+        "floor_c": 21.0,
+        "hour": 21
+      },
+      {
+        "active": true,
+        "agree": true,
+        "cost_base": 3.616663,
+        "cost_plus_0_1": 3.642126,
+        "dual_eur_per_k": 0.24798,
+        "envelope": "insulated",
+        "fd_eur_per_k": 0.24798,
+        "floor_c": 21.0,
+        "hour": 21
+      }
+    ]
+  }
+}

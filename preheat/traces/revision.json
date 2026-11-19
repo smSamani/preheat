@@ -1,0 +1,110 @@
+{
+  "format": "preheat-trace/1",
+  "source": "hand-written",
+  "model": null,
+  "recorded_on": null,
+  "results_format": "preheat-results/1",
+  "sessions": [
+    {
+      "name": "revising a comfort limit",
+      "turns": [
+        {
+          "role": "user",
+          "text": "What does preheating save today?"
+        },
+        {
+          "role": "program",
+          "text": "At a 22.5 °C ceiling in this scenario, against the one-hour rule:\n\nCurrent house: €6.61 → €6.07 for the day (€0.54 saved).\n\nBetter-insulated house: €4.17 → €3.62 for the day (€0.55 saved)."
+        },
+        {
+          "role": "user",
+          "text": "Try a 23.5 maximum"
+        },
+        {
+          "role": "program",
+          "text": "Maximum 23.5 °C, all day — correct? (yes/no)"
+        },
+        {
+          "role": "user",
+          "text": "yes"
+        },
+        {
+          "role": "tool",
+          "name": "compare",
+          "arguments": {
+            "ceiling_c": 23.5
+          },
+          "result": {
+            "status": "ok",
+            "ceiling_c": 23.5,
+            "synthetic": true,
+            "envelopes": {
+              "current": {
+                "status": "ok",
+                "baseline_evening_kwh": 6.0002923854783,
+                "optimised_evening_kwh": 1.3687616684583879,
+                "avoided_kwh": 4.631530717019912,
+                "avoided_pct": 77.18841715495368,
+                "baseline_cost_eur": 6.6086527425246056,
+                "optimised_cost_eur": 5.901540851443231,
+                "saving_eur": 0.7071118910813743,
+                "case_range": {
+                  "n_cases_ok": 7,
+                  "avoided_pct_min": 60.572413775277205,
+                  "avoided_pct_max": 100.0,
+                  "saving_eur_min": 0.5273018616336191,
+                  "saving_eur_max": 1.1862522370399988
+                }
+              },
+              "insulated": {
+                "status": "ok",
+                "baseline_evening_kwh": 4.14573757092467,
+                "optimised_evening_kwh": 0.0,
+                "avoided_kwh": 4.14573757092467,
+                "avoided_pct": 100.0,
+                "baseline_cost_eur": 4.170748536025363,
+                "optimised_cost_eur": 3.510373275179556,
+                "saving_eur": 0.6603752608458073,
+                "case_range": {
+                  "n_cases_ok": 7,
+                  "avoided_pct_min": 91.2282613787815,
+                  "avoided_pct_max": 100.00000000000001,
+                  "saving_eur_min": 0.5411868107268165,
+                  "saving_eur_max": 0.928154409461464
+                }
+              }
+            }
+          }
+        },
+        {
+          "role": "program",
+          "text": "Maximum indoor temperature 23.5 °C, one synthetic winter day (nominal case):\n  Current house: avoids 4.63 kWh of the one-hour rule's 6.00 kWh evening heat-pump electricity (77.2%).\n    Day heating cost €5.90 instead of €6.61 with the one-hour rule: €0.71 saved that day.\n  Better-insulated house: avoids 4.15 kWh of the one-hour rule's 4.15 kWh evening heat-pump electricity (100.0%).\n    Day heating cost €3.51 instead of €4.17 with the one-hour rule: €0.66 saved that day.\n  Across the what-if cases: avoided 60.6% to 100.0%, saved €0.53 to €1.19 (current, 7 what-if cases); avoided 91.2% to 100.0%, saved €0.54 to €0.93 (insulated, 7 what-if cases).\nBoth comparisons are against the one-hour rule. The two measures can rank the houses differently. The tool does not recommend a setting."
+        },
+        {
+          "role": "user",
+          "text": "What would a tighter 21:00 floor cost?"
+        },
+        {
+          "role": "program",
+          "text": "Nominal day, 22.5 °C:\nCurrent house: making the 21:00 minimum 0.1 °C warmer raises the day's cost from €6.07 to €6.09 (re-solved). The LP's dual value for that minimum is €0.26 per °C, which agrees with a re-solve 0.01 °C higher.\nBetter-insulated house: making the 21:00 minimum 0.1 °C warmer raises the day's cost from €3.62 to €3.64 (re-solved). The LP's dual value for that minimum is €0.25 per °C, which agrees with a re-solve 0.01 °C higher."
+        },
+        {
+          "role": "user",
+          "text": "Let it go up to 24"
+        },
+        {
+          "role": "program",
+          "text": "Maximum 24.0 °C, all day — correct? (yes/no)"
+        },
+        {
+          "role": "user",
+          "text": "no"
+        },
+        {
+          "role": "program",
+          "text": "Cancelled. Nothing was calculated."
+        }
+      ]
+    }
+  ]
+}

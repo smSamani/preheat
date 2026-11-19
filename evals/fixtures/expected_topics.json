@@ -1,0 +1,25 @@
+{
+ "note": "Independent copy of the number-free explanation topics. Production prose changes must be mirrored here on purpose; tests compare this file with the rendered text and check its hash.",
+ "topics": {
+  "preheating": {
+   "en": "The solver heats earlier while electricity is cheaper. The house cools gradually, so the heat pump can run less during the peak tariff. Both schedules respect the same indoor temperature limits. Savings are measured against a simple one-hour rule.",
+   "fa": "حل‌گر بخشی از گرمایش رو به قبل از ساعت‌های گرون منتقل می‌کنه، چون اون موقع برق ارزون‌تره. خونه گرما رو نگه می‌داره و بعد به‌تدریج سرد می‌شه. هر دو برنامه همون کف و سقف دمای داخل رو رعایت می‌کنن. صرفه‌جویی‌ها در مقایسه با یک قاعدهٔ سادهٔ یک‌ساعته است."
+  },
+  "insulation": {
+   "en": "Better insulation reduces heat loss at the same indoor–outdoor temperature difference. The house stays warm longer after preheating and usually needs less heat during peak hours. The comparison card shows the effect for this scenario.",
+   "fa": "خونه با عایق بهتر، برای یک اختلاف دمای یکسان، گرمای کمتری به بیرون پس می‌ده. برای همین بعد از پیش‌گرمایش مدت بیشتری گرم می‌مونه و معمولاً تو ساعات گرون کمتر به پمپ نیاز داره. مبلغ دقیق رو می‌تونی تو کارت مقایسه ببینی."
+  },
+  "baseline": {
+   "en": "Savings are measured against a simple one-hour rule: each hour it heats just enough to reach the next hour's minimum and ignores prices. A fairer price-blind comparator with the same whole-day foresight shows much smaller savings (see the README).",
+   "fa": "مبنای مقایسه یک قاعدهٔ سادهٔ یک‌ساعته است: هر ساعت فقط به اندازهٔ لازم گرم می‌کنه تا ساعت بعد به حداقل دما برسه و به قیمت برق توجهی نداره. یک مقایسهٔ منصفانه‌تر، با همون آگاهی از کل روز ولی بی‌توجه به قیمت، صرفه‌جویی خیلی کمتری نشون می‌ده (README رو ببین)."
+  },
+  "limits": {
+   "en": "All numbers describe one invented house on one invented winter day. They should not be scaled to a year or applied to a real home. No occupants took part.",
+   "fa": "همهٔ اعداد مربوط به یک خانهٔ ساختگی در یک روز زمستانی ساختگی هستند. نباید اون‌ها رو به سال یا به یک خانهٔ واقعی تعمیم داد. هیچ ساکنی در این کار مشارکت نداشته."
+  },
+  "out_of_scope": {
+   "en": "That is outside this model. I can explain it, compare the two houses, or propose a new maximum temperature.",
+   "fa": "این سؤال خارج از این مدل است. می‌تونم مدل رو توضیح بدم، دو خونه رو مقایسه کنم یا سقف دمای جدید پیشنهاد کنم."
+  }
+ }
+}
