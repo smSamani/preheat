@@ -2,6 +2,14 @@
 
 A small project out of curiosity. I wanted to know how much of a heat pump's expensive evening electricity a home could avoid by warming up a little earlier, and whether better insulation changes the answer. Everything here is synthetic: one invented house on one invented winter day. The results are a worked example, not a prediction for any real building.
 
+![The dashboard showing the preheated schedule against the baseline](figures/dashboard_current.png)
+
+*The dashboard showing the preheated schedule against the baseline.*
+
+![The language interface proposing a 23 °C ceiling](figures/dashboard_proposal.png)
+
+*The language interface proposing a ceiling of 23 °C, which the household must apply themselves.*
+
 ## The question
 
 Electricity costs more from 17:00 to 22:00 (€0.38 per kWh instead of €0.22). If the house is warmed before 17:00, the heat pump can run less in those hours. You choose one thing: the highest indoor temperature you would accept, from 21.5 to 24 °C. For each choice, a linear programme finds the cheapest hourly heating schedule. It is compared with a simple **one-hour rule** that ignores prices. This is done for the house as it is and for the same house with a lower heat-loss coefficient.
@@ -118,6 +126,10 @@ There are 6 ceilings × 2 houses × 7 cases = 84 paired solves. The cases change
 | Limits | start 20 °C; at least 20 °C at every hour mark; at least 21 °C at 18:00 to 21:00; at most the chosen maximum |
 
 **What the two houses are.** $UA$ is an effective whole-home loss coefficient. The "better insulated" case only lowers it from 0.20 to 0.13 kW/K. Heat capacity, heat-pump size, COP curve, gains, weather and limits are all held fixed. The two values are illustrative and are not mapped to any real building class or renovation measure. In a real retrofit, flow temperature and COP, airtightness and sometimes thermal mass would change too.
+
+![The two houses compared in the dashboard](figures/dashboard_comparison.png)
+
+*The current house and the better insulated house compared side by side.*
 
 **What the 4 kWh/K means.** A published estimate of about 3.9 kWh/K for one simulated, well-insulated house supports only the order of magnitude. Treating 4 kWh/K as one store that charges and discharges within an hour is a strong simplification. Air, walls and furniture are one temperature. There is no emitter (radiator or floor) lag, and no difference between air and surface temperature. This probably overstates how quickly heat can be stored and recovered. At 22.5 °C the lump holds 10 kWh more heat than at 20 °C. The heavier-house case shows how strongly the result depends on this one number.
 
